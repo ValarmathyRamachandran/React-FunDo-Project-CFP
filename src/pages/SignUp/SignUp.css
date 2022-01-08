@@ -1,0 +1,149 @@
+.form{
+    font-size: 14px;
+    line-height: 1.4286;
+    color: #202124;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    border: 1px solid #dadce0;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.form-group{
+    margin-bottom: 4vh;
+    margin-left: 8vh;
+    width: 70%;
+}
+
+h2,h3{
+    margin-left: 8vh;
+}
+h2{
+    font-size: 22px;
+    line-height: 1.4286;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    color:tomato;
+}
+
+a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #1a73e8;
+    margin-left: 8vh;
+    
+}
+
+.email-link{
+    margin-bottom: 6vh;
+}
+
+.next-btn{
+    margin-left: 60vh;
+    float: right;
+    width: 10%;
+    background-color: #1a73e8;
+    color:white;
+    font:200;
+    margin-bottom: 10vh;
+    height: 40px;
+    border-radius: .5rem;
+    border-color: #1a73e8;
+    
+}
+ 
+
+#first-name{
+    width: 45%;
+    
+}
+#last-name{
+    width: 45%;
+    
+}
+.next-container{
+    display:grid;
+}
+
+
+
+.sign-in-instead{
+    float: left;
+    margin-top: -16vh;
+    margin-bottom: 10vh;
+    font-weight:500;
+}
+#User-name{
+    width: 80% !important;
+}
+
+h3{
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font:lighter;
+    font-weight: 400;
+    line-height: 1.3333;
+}
+
+#blue::first-letter{
+    color: blue;
+}
+
+.helper-text{
+    margin: left 1vh;
+}
+
+.google-image{
+    float: right;
+    margin-top: -95vh;
+    margin-right: 5vh;
+}
+
+@media (max-width:812px) {
+    .google-image {
+      display: none;
+    }
+
+    h2,h3{
+        margin-left: 1vh;
+    }
+
+    .form{
+        font-size: 14px;
+        line-height: 1.4286;
+        color: #202124;
+        font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+        text-align: left;
+        border: none;
+        margin-left: 5%;
+        margin-right: -30%;
+        margin-top: 2%;
+    }
+
+    #first-name{
+        display: flex;
+        padding: 6px 8px;
+        width: 200%;
+    }
+    #last-name{
+        display: flex;
+        padding: 6px 8px;
+        width: 200%;
+        
+    }
+
+    .form-group{
+        margin-bottom: 2vh;
+        margin-left: 1vh;
+        width: 100%;
+    }
+    html, body{
+        overflow-x: hidden;
+        }
+
+        .MuiFormControl-root  {
+            width: 70%;
+        }
+  }
+
