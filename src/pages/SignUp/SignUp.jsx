@@ -26,7 +26,7 @@ export default class SignUp extends Component {
                 <TextField  id="User-name" label="Username" variant="outlined" placeholder="Username "   size="small" style= {{width: '70%'}}  />
                 <FormHelperText class="helper-text"> &nbsp; You can use letters,numbers & periods</FormHelperText>
                 </div >
-                {/* elementType="You can use letters,numbers& periods" */}
+                
                 <div class="email-link" >
                     <a href="#" >Use my current email address instead</a>
                 </div>
@@ -45,7 +45,7 @@ export default class SignUp extends Component {
                 <div class="next-container">
                 <button type="button" class="next-btn" size="small">Next</button>
                 <p class="sign-in-instead">
-                     <a href="#">Sign in instead </a>
+                     <a href="./SignIn.jsx">Sign in instead </a>
                 </p>
                 </div>
                 <div class="logo-image-section">
