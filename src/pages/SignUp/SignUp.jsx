@@ -45,7 +45,7 @@ export default class SignUp extends Component {
                 <div class="next-container">
                 <button type="button" class="next-btn" size="small">Next</button>
                 <p class="sign-in-instead">
-                     <a href="./SignIn.jsx">Sign in instead </a>
+                     <a href="./pages/SignIn/SignIn">Sign in instead </a>
                 </p>
                 </div>
                 <div class="logo-image-section">

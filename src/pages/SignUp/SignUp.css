@@ -9,12 +9,13 @@
     margin-top: 2%;
     margin-bottom: 2%;
     text-align: left;
+   
 }
 
 .form-group{
     margin-bottom: 4vh;
     margin-left: 8vh;
-    width: 70%;
+    width: 80%;
 }
 
 h2,h3{
@@ -96,8 +97,8 @@ h3{
 
 .google-image{
     float: right;
-    margin-top: -95vh;
-    margin-right: 5vh;
+    margin-top: -85vh;
+    margin-right: -7vh;
 }
 
 @media (max-width:812px) {
