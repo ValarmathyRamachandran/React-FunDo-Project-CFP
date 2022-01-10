@@ -1,3 +1,11 @@
+$font-color:black;
+@mixin form {
+    reset-pwd,confirm-pwd { 
+        color:$font-color;
+    }
+    
+}
+
 #reset-pwd,#confirm-pwd {
     background-color: transparent;
     border: none;
@@ -7,7 +15,7 @@
     margin: 0;
     min-width: 0%;
     border-radius: 4px;
-    color: #202124;
+    color:$font-color;
     font-size: 16px;
     height: 28px;
     margin: 1px 2px 0 1px;
@@ -33,12 +41,12 @@ h1{
 }
 
 .resetPwd-sub-heading{
-    color: #202124;
+    color:$font-color;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.1px;
     line-height: 1.5;
-    margin-left: 25vh;
+    margin-left: 26vh;
     margin-bottom: 5vh;
 }
 .next-container{
@@ -50,16 +58,16 @@ h1{
 max-width: 35%;
 }
 .next-btn{
-    margin-left: 59vh;
+    margin-left: 58vh;
     float: right;
-    width: 15%;
+    width: 17%;
     background-color: #1a73e8;
     color:white;
     font:200;
     margin-bottom: 10vh;
     height: 40px;
     border-radius: .5rem;
-    border-color: #1a73e8;
+    border-color:none;
     
     
 }
