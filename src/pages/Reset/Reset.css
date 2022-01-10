@@ -1,3 +1,18 @@
+#reset-pwd,#confirm-pwd {
+    background-color: transparent;
+    border: none;
+    display: block;
+    font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 14px;
+    margin: 0;
+    min-width: 0%;
+    border-radius: 4px;
+    color: #202124;
+    font-size: 16px;
+    height: 28px;
+    margin: 1px 2px 0 1px;
+    padding: 13px 15px;
+}
 #fundo-heading,h2 {
     display: flex; 
     height: 24px;
@@ -17,43 +32,25 @@ h1{
     line-height: 1.3333;
 }
 
-.forgotPwd-sub-heading{
+.resetPwd-sub-heading{
     color: #202124;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.1px;
     line-height: 1.5;
-    margin-left: 19vh;
+    margin-left: 25vh;
     margin-bottom: 5vh;
 }
-
-
-#forgotpwd-phoneoremail {
-    
-    background-color: transparent;
-    border: none;
-    display: block;
-    font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    line-height: 24px;
-    margin: 0;
-    min-width: 0%;
-    border-radius: 4px;
-    color: #202124;
-    font-size: 16px;
-    height: 28px;
-    margin: 1px 2px 0 1px;
-    padding: 13px 15px;
- 
-    
-}
-
 .next-container{
     display:grid;
-    margin-top: -6vh;
-    margin-bottom: 20vh;
+    margin-top: -2vh;
+    margin-bottom: 6vh;
+}
+.form{
+max-width: 35%;
 }
 .next-btn{
-    margin-left: 67vh;
+    margin-left: 59vh;
     float: right;
     width: 15%;
     background-color: #1a73e8;
@@ -66,8 +63,7 @@ h1{
     
     
 }
-
 .form-group{
-    margin-left: 8vh;
-    margin-bottom: 12vh;
+    margin-left: 7vh;
+    margin-bottom: 8vh;
 }

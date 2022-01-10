@@ -1,8 +1,8 @@
 import React from 'react';
-import './ForgotPassword.css';
 import TextField from '@mui/material/TextField';
+import './Reset.css';
 
-const ForgotPassword=()=>
+const Reset=()=>
 {
     return (
         <form>
@@ -16,11 +16,14 @@ const ForgotPassword=()=>
             <p id="red" style={{color: "red" }}>o</p>
         </h2>
         <h1>Find your email</h1>
-        <div class="forgotPwd-sub-heading"><span>Enter your phone number or recovery email</span>
+        <div class="resetPwd-sub-heading"><span>Enter your password</span>
         </div>
 
         <div className="form-group">
-            <TextField id="forgotpwd-phoneoremail" label="Email or phone" variant="outlined"  placeholder="Phone number or email" size="small"  fullWidth /> 
+            <TextField id="reset-pwd" label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth /> 
+        </div>
+        <div className="form-group">
+            <TextField id="confirm-pwd" label="Confirm password" variant="outlined"  placeholder="confirm password" size="small"  fullWidth /> 
         </div>
 
         <div class="next-container">
@@ -31,5 +34,4 @@ const ForgotPassword=()=>
         );
     }
 
-    export default ForgotPassword;
-
+    export default Reset;
