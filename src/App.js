@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
-import ForgotPassword from './pages/ForgotPassword';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 function App() {
   return (
