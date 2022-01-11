@@ -12,8 +12,9 @@ function App() {
     <div className="App">
     
       {/* <SignUp /> */}
-      {/* <ForgotPassword /> */}
-      < Reset />
+      <SignIn />
+      {/* <ForgotPassword />
+      < Reset /> */}
      
       
     </div>

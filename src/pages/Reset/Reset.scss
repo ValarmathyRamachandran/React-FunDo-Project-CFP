@@ -1,10 +1,4 @@
 $font-color:black;
-@mixin form {
-    reset-pwd,confirm-pwd { 
-        color:$font-color;
-    }
-    
-}
 
 #reset-pwd,#confirm-pwd {
     background-color: transparent;
@@ -17,7 +11,7 @@ $font-color:black;
     border-radius: 4px;
     color:$font-color;
     font-size: 16px;
-    height: 28px;
+    height: 22px;
     margin: 1px 2px 0 1px;
     padding: 13px 15px;
 }
@@ -31,6 +25,9 @@ $font-color:black;
     justify-content: center;
     margin-bottom: 1vh;
     margin-top: 10vh;
+}
+#fundo-heading{
+    justify-content: center !important;
 }
 
 h1{
@@ -46,7 +43,7 @@ h1{
     font-weight: 400;
     letter-spacing: 0.1px;
     line-height: 1.5;
-    margin-left: 26vh;
+    margin-left: 32vh;
     margin-bottom: 5vh;
 }
 .next-container{
@@ -55,10 +52,10 @@ h1{
     margin-bottom: 6vh;
 }
 .form{
-max-width: 35%;
+max-width: 40% !important;
 }
 .next-btn{
-    margin-left: 58vh;
+    margin-left: 70vh;
     float: right;
     width: 17%;
     background-color: #1a73e8;
