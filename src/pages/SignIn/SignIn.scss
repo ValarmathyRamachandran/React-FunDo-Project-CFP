@@ -6,7 +6,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 .SignIn-fundo-heading{
     
     margin-top: 12vh;
-    margin-left: 38vh !important;
+    margin-left: 34vh !important;
     line-height: .5;
     display: flex;
     height: 24px;
@@ -58,7 +58,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
     letter-spacing: 0.2px;
     line-height: 0.5;
     text-align: center;
-    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif !important;
     margin-left: 3vh !important;
     margin-bottom: 10vh;
 }
@@ -67,7 +67,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 
 .SignIn-form-group{
     margin-bottom: 2vh;
-    margin-left: 8vh;
+    margin-left: 7vh;
     width: 82%;
 }
 
@@ -76,7 +76,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 .SignIn-forgot-email-container{
     margin-bottom: 5vh;
     font-weight: $fontweight !important;
-    margin-right: 54vh !important;
+    margin-right: 49vh !important;
 
    
 }
@@ -85,7 +85,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
     margin-bottom: 5vh;
     margin-top: -1vh;
     font-size: 14px !important;
-    color: blue;
+    color: $font-blue;
     
 }
 .SignIn-helper-content{
@@ -100,10 +100,10 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 $color-blue:blue;
 
 .SignIn-learn-more{
-    margin-left: -56vh;
+    margin-left: -50vh;
     text-decoration: none;
     font-size: 14px ;
-    color: $color-blue;
+    color: $font-blue;
     font-weight: $fontweight !important;
 }
 .SignIn-create-acct-btn{
@@ -113,7 +113,7 @@ $color-blue:blue;
     font-size: .975rem;
     letter-spacing: .0107142857em;
     border: none;
-    margin-left: -50vh;
+    margin-left: -44vh;
     margin-top: 5vh;
     color: $font-blue;
     font-weight: 590 !important;
@@ -123,15 +123,15 @@ $color-blue:blue;
     margin-top: -6vh;
 }
 .SignIn-next-btn{
-    margin-left: 64vh;
+    margin-left: 58vh;
     float: right;
     width: 18%;
     background-color: #1a73e8;
     color:white;
     font:200;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     height: 38px;
     border-radius: 4px;
-   border-color: transparent;
+    border-color: transparent;
     
 }
