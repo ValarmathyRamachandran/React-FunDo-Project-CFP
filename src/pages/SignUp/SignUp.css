@@ -4,36 +4,43 @@
     color: #202124;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     border: 1px solid #dadce0;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
     margin-bottom: 2%;
     text-align: left;
+    max-width: 55% !important;
+}
+#fundo-heading{
+    justify-content: left !important;
+}
+
+h2{
+    margin-left: 7vh !important ;
 }
 
 .form-group{
-    margin-bottom: 4vh;
+    margin-bottom: 6vh;
     margin-left: 8vh;
-    width: 70%;
+    width: 95%;
 }
 
-h2,h3{
-    margin-left: 8vh;
-}
+
 h2{
     font-size: 22px;
     line-height: 1.4286;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
-    color:tomato;
+    
 }
 
-a{
+/* a{
     text-decoration: none;
     font-size: 16px;
     color: #1a73e8;
     margin-left: 8vh;
     
-}
+} */
+
 
 .email-link{
     margin-bottom: 6vh;
@@ -42,7 +49,7 @@ a{
 .next-btn{
     margin-left: 60vh;
     float: right;
-    width: 10%;
+    width: 10% !important;
     background-color: #1a73e8;
     color:white;
     font:200;
@@ -78,36 +85,62 @@ a{
     width: 80% !important;
 }
 
-h3{
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-    font-size: 24px;
-    font:lighter;
-    font-weight: 400;
-    line-height: 1.3333;
-}
-
-#blue::first-letter{
-    color: blue;
-}
-
 .helper-text{
     margin: left 1vh;
 }
 
 .google-image{
     float: right;
-    margin-top: -95vh;
-    margin-right: 5vh;
+    margin-top: -104vh;
+    margin-right: -2vh;
+}
+.create-heading {
+    margin-bottom: 6vh !important;
+    color: #202124;
+    
+   
+    font-weight: 400 !important;
+    line-height: 1.3333;
+}
+h3{
+    font-size: 22px !important;
+    margin-bottom: 8vh !important;
+    margin-left: -54vh !important;
+    font-weight: 400 !important;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif !important;
+    letter-spacing: .5;
+    font-size: 24px !important;
 }
 
-@media (max-width:812px) {
+ /* @media screen and (max-width:640px) {  
     .google-image {
       display: none;
     }
-
-    h2,h3{
-        margin-left: 1vh;
+    .form{
+        max-width: 100% !important;
     }
+    .firstName{
+        width:276% !important;
+        margin-bottom: 3vh;
+    }
+    .lastName{
+        width:283%;
+    }
+    .pwd{
+        width: 280%;
+    }
+    .confirm{
+        width: 285%;
+    }
+
+    h3{
+        font-size: 22px !important;
+        margin-left: 1vh !important;
+    }
+    .helper-text{
+        font-size: 10px !important;
+    }
+    
 
     .form{
         font-size: 14px;
@@ -115,7 +148,7 @@ h3{
         color: #202124;
         font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
         text-align: left;
-        border: none;
+        border: none !important;
         margin-left: 5%;
         margin-right: -30%;
         margin-top: 2%;
@@ -132,9 +165,13 @@ h3{
         width: 200%;
         
     }
-
+    .userName{
+        width: 133% !important;
+        padding: 5.2px;
+        margin-left: -1vh;
+    }
     .form-group{
-        margin-bottom: 2vh;
+        margin-bottom: 3vh !important;
         margin-left: 1vh;
         width: 100%;
     }
@@ -142,8 +179,16 @@ h3{
         overflow-x: hidden;
         }
 
-        .MuiFormControl-root  {
-            width: 70%;
+        a{
+            margin-left: 8vh;
         }
-  }
+        .email-link{
+            font-size:12px !important;
+            margin-left: -2vh;
+        }
+        .FormControlLabel{
+                font-size: 12px !important;
+        }
 
+        
+}   */
