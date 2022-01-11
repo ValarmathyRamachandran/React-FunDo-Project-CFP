@@ -1,53 +1,80 @@
-.form{
+$font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontweight:600;
+$show-color: #202124;
+.SignUp-form{
+    
     font-size: 14px;
     line-height: 1.4286;
     color: #202124;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     border: 1px solid #dadce0;
-    margin-left: 15%;
+    margin-left: 20%;
     margin-right: 15%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 2%;
     text-align: left;
-    max-width: 55% !important;
+    max-width: 60% !important;
 }
-#fundo-heading{
-    justify-content: left !important;
-}
-
-h2{
-    margin-left: 7vh !important ;
-}
-
-.form-group{
-    margin-bottom: 6vh;
+.SignUpform-group-showpwd{
+    color: $show-color;
+    
     margin-left: 8vh;
-    width: 95%;
 }
-
-
-h2{
+.SignUpshowpwd-text label{
+    font-size: 8px !important;
+}
+#SignUp-fundo-heading{
+    justify-content: left ;
     font-size: 22px;
     line-height: 1.4286;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
-    
+    margin-left: 8vh  ;
+
+    #SignUp-blue{
+        color:$font-blue;    
+    }
+    #SignUp-red{
+        color:$font-red;
+    }
+    #SignUp-yellow{
+        color:$font-yellow;
+    }
+    #SignUp-green{
+        color:$font-green;
+    }
 }
 
-/* a{
+.SignUpform-group{
+    margin-bottom: 4vh;
+    margin-left: 8vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+    
+    
+}
+.signInInstead-text{
     text-decoration: none;
     font-size: 16px;
     color: #1a73e8;
     margin-left: 8vh;
+   
+}
+
+.SignUpEmail-link{
+    text-decoration: none;
+    font-size: 16px;
+    color: #1a73e8;
+    margin-left: 8vh;
+    font-weight: 500;
     
-} */
+} 
 
-
-.email-link{
+.SignUp-email-container{
     margin-bottom: 6vh;
 }
 
-.next-btn{
-    margin-left: 60vh;
+.SignUpNext-btn{
+    margin-left: 70vh;
     float: right;
     width: 10% !important;
     background-color: #1a73e8;
@@ -55,61 +82,73 @@ h2{
     font:200;
     margin-bottom: 10vh;
     height: 40px;
-    border-radius: .5rem;
-    border-color: #1a73e8;
+    border-radius: 4px;
+    border-color:transparent;
     
 }
  
 
-#first-name{
-    width: 45%;
+.SignUp-firstName{
+    width: 29%;
+   
     
 }
-#last-name{
-    width: 45%;
+.SignUp-lastName{
+    width: 29%;
     
 }
-.next-container{
+
+.SignUp-password{
+    width: 29%;
+
+}
+.SignUp-confirm{
+    width: 29%;
+}
+
+.SignUp-pwd-helper-text{
+    margin-left: 10vh;
+    margin-top: -3vh;
+}
+.SignUpNext-container{
     display:grid;
 }
 
-
-
 .sign-in-instead{
     float: left;
-    margin-top: -16vh;
+    margin-top: -14vh;
     margin-bottom: 10vh;
     font-weight:500;
 }
-#User-name{
-    width: 80% !important;
+.SignUp-userName {
+    margin-left: 8vh;
+    width: 57%;
 }
 
-.helper-text{
-    margin: left 1vh;
+.SignUp-helper-text{
+    margin-left: 10vh !important;
+    margin-bottom: 3vh !important;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .google-image{
     float: right;
-    margin-top: -104vh;
-    margin-right: -2vh;
+    margin-top: -78vh;
+    margin-right: 1vh;
 }
-.create-heading {
-    margin-bottom: 6vh !important;
+.SignUp-create-heading{
+    margin-bottom: 5vh ;
     color: #202124;
-    
-   
-    font-weight: 400 !important;
+    font-weight: 400 ;
     line-height: 1.3333;
-}
-h3{
-    font-size: 22px !important;
-    margin-bottom: 8vh !important;
-    margin-left: -54vh !important;
-    font-weight: 400 !important;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif !important;
+    font-size: 22px ;
+    margin-bottom: 8vh ;
+    margin-left: 7vh ;
+    font-weight: 400 ;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ;
     letter-spacing: .5;
-    font-size: 24px !important;
+    font-size: 24px ;
 } 
 
  /* @media screen and (max-width:640px) {  

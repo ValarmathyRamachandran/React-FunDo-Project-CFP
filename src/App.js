@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
     
-      {/* <SignUp /> */}
-      <SignIn />
+      <SignUp />
+      {/* <SignIn /> */}
       {/* <ForgotPassword />
       < Reset /> */}
      
