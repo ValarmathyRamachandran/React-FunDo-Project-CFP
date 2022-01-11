@@ -31,6 +31,7 @@ $show-color: #202124;
     display: flex;
     margin-bottom: -6vh;
     margin-top: 5vh;
+    font-weight: 500;
 
     #SignUp-blue{
         color:$font-blue;    
@@ -141,13 +142,12 @@ $show-color: #202124;
     margin-right: 1vh;
 }
 .SignUp-create-heading{
-    margin-bottom: 5vh ;
+    margin-bottom: 3vh ;
     color: #202124;
     font-weight: 400 ;
     line-height: 1.3333;
-    font-size: 22px ;
-    margin-bottom: 8vh ;
-    margin-left: 7vh ;
+    margin-bottom: 5vh ;
+    margin-left: 8vh ;
     font-weight: 400 ;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ;
     letter-spacing: .5;
