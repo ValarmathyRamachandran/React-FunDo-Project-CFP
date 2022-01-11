@@ -1,0 +1,231 @@
+$font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontweight:600;
+$show-color: #202124;
+.SignUp-form{
+    
+    font-size: 14px;
+    line-height: 1.4286;
+    color: #202124;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    border: 1px solid #dadce0;
+    margin-left: 20%;
+    margin-right: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: left;
+    max-width: 60% !important;
+}
+.SignUpform-group-showpwd{
+    color: $show-color;
+    
+    margin-left: 8vh;
+}
+.SignUpshowpwd-text label{
+    font-size: 8px !important;
+}
+#SignUp-fundo-heading{
+    justify-content: left ;
+    font-size: 22px;
+    line-height: 1.4286;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    margin-left: 8vh  ;
+    display: flex;
+    margin-bottom: -6vh;
+    margin-top: 5vh;
+
+    #SignUp-blue{
+        color:$font-blue;    
+    }
+    #SignUp-red{
+        color:$font-red;
+    }
+    #SignUp-yellow{
+        color:$font-yellow;
+    }
+    #SignUp-green{
+        color:$font-green;
+    }
+}
+
+.SignUpform-group{
+    margin-bottom: 4vh;
+    margin-left: 8vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+    
+    
+}
+.signInInstead-text{
+    text-decoration: none;
+    font-size: 16px;
+    color: #1a73e8;
+    margin-left: 8vh;
+   
+}
+
+.SignUpEmail-link{
+    text-decoration: none;
+    font-size: 16px;
+    color: #1a73e8;
+    margin-left: 8vh;
+    font-weight: 500;
+    
+} 
+
+.SignUp-email-container{
+    margin-bottom: 6vh;
+}
+
+.SignUpNext-btn{
+    margin-left: 70vh;
+    float: right;
+    width: 10% !important;
+    background-color: #1a73e8;
+    color:white;
+    font:200;
+    margin-bottom: 10vh;
+    height: 40px;
+    border-radius: 4px;
+    border-color:transparent;
+    
+}
+ 
+
+.SignUp-firstName{
+    width: 29%;
+   
+    
+}
+.SignUp-lastName{
+    width: 29%;
+    
+}
+
+.SignUp-password{
+    width: 29%;
+
+}
+.SignUp-confirm{
+    width: 29%;
+}
+
+.SignUp-pwd-helper-text{
+    margin-left: 10vh;
+    margin-top: -3vh;
+}
+.SignUpNext-container{
+    display:grid;
+}
+
+.sign-in-instead{
+    float: left;
+    margin-top: -14vh;
+    margin-bottom: 10vh;
+    font-weight:500;
+}
+.SignUp-userName {
+    margin-left: 8vh;
+    width: 57%;
+}
+
+.SignUp-helper-text{
+    margin-left: 10vh !important;
+    margin-bottom: 3vh !important;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.google-image{
+    float: right;
+    margin-top: -78vh;
+    margin-right: 1vh;
+}
+.SignUp-create-heading{
+    margin-bottom: 5vh ;
+    color: #202124;
+    font-weight: 400 ;
+    line-height: 1.3333;
+    font-size: 22px ;
+    margin-bottom: 8vh ;
+    margin-left: 7vh ;
+    font-weight: 400 ;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ;
+    letter-spacing: .5;
+    font-size: 24px ;
+} 
+
+ /* @media screen and (max-width:640px) {  
+    .google-image {
+      display: none;
+    }
+    .form{
+        max-width: 100% !important;
+    }
+    .firstName{
+        width:276% !important;
+        margin-bottom: 3vh;
+    }
+    .lastName{
+        width:283%;
+    }
+    .pwd{
+        width: 280%;
+    }
+    .confirm{
+        width: 285%;
+    }
+    h3{
+        font-size: 22px !important;
+        margin-left: 1vh !important;
+    }
+    .helper-text{
+        font-size: 10px !important;
+    }
+    
+    .form{
+        font-size: 14px;
+        line-height: 1.4286;
+        color: #202124;
+        font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+        text-align: left;
+        border: none !important;
+        margin-left: 5%;
+        margin-right: -30%;
+        margin-top: 2%;
+    }
+    #first-name{
+        display: flex;
+        padding: 6px 8px;
+        width: 200%;
+    }
+    #last-name{
+        display: flex;
+        padding: 6px 8px;
+        width: 200%;
+        
+    }
+    .userName{
+        width: 133% !important;
+        padding: 5.2px;
+        margin-left: -1vh;
+    }
+    .form-group{
+        margin-bottom: 3vh !important;
+        margin-left: 1vh;
+        width: 100%;
+    }
+    html, body{
+        overflow-x: hidden;
+        }
+        a{
+            margin-left: 8vh;
+        }
+        .email-link{
+            font-size:12px !important;
+            margin-left: -2vh;
+        }
+        .FormControlLabel{
+                font-size: 12px !important;
+        }
+        
+}  */
