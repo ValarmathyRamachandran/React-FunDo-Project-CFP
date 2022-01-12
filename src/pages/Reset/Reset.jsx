@@ -1,10 +1,48 @@
-import React from 'react';
+import React, { Component } from "react";
 import TextField from '@mui/material/TextField';
 import './Reset.scss';
 
-const Reset=()=>
-{
-    return (
+export default class Reset extends Component{
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          resetPassword: "",
+          confirmPassword: "",
+          resetPasswordError: false,
+          confirmPasswordError: false
+        };
+      }
+
+      validation = () => {
+        console.log("in validation");
+        let isError = false;
+        const error = this.state;
+        console.log(error.resetPassword);
+        error.resetPasswordError = this.state.resetPassword === "" ? true : false;
+        error.confirmPasswordError = this.state.confirmPassword === "" ? true : false;
+    
+        this.setState({
+          ...error
+        });
+        return (isError = error.resetPasswordError || error.confirmPasswordError);
+      };
+    
+      next = () => {
+        var validated = this.validation();
+        if (validated) {
+          console.log("validation done successfully");
+        }
+      };
+    
+      changeHandle = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      };
+    render() {
+        console.log(this.state);
+        return (
         <form>
         <div className="form">
         <h2  id="fundo-heading" >
@@ -20,18 +58,31 @@ const Reset=()=>
         </div>
 
         <div className="form-group">
-            <TextField id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth /> 
+            <TextField name="resetPassword" id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth
+            error={this.state.resetPasswordError}
+            helperText={
+              this.state.resetPasswordError
+                ? "Reset Password is required"
+                : " "
+            }
+            onChange={(e) => this.changeHandle(e)} /> 
         </div>
         <div className="form-group">
-            <TextField id="confirm-pwd" type={"password"} label="Confirm password" variant="outlined"  placeholder="confirm password" size="small"  fullWidth /> 
+            <TextField id="confirm-pwd" type={"password"} label="Confirm password" variant="outlined"  placeholder="confirm password" size="small"  fullWidth 
+            error={this.state.confirmPasswordError}
+            helperText={
+              this.state.confirmPasswordError
+                ? "Confirm Password is required"
+                : " "
+            }
+            onChange={(e) => this.changeHandle(e)} /> 
         </div>
 
         <div className="next-container">
-            <button type="button" class="next-btn" size="small">Next</button>
+            <button type="button" class="next-btn" size="small" onClick={this.next}>Next</button>
         </div>
         </div>
         </form>
         );
     }
-
-    export default Reset;
+}

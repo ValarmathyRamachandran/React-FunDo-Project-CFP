@@ -7,14 +7,15 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
 
 
+
 function App() {
   return (
     <div className="App">
     
-      {/* <SignUp /> */}
-      <SignIn />
-      {/* <ForgotPassword />
-      < Reset /> */}
+      <SignUp />
+      {/* <SignIn />  */}
+      {/* <ForgotPassword /> */}
+      {/* < Reset /> */}
      
       
     </div>
