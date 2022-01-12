@@ -15,7 +15,7 @@ $font-color:black;
     margin: 1px 2px 0 1px;
     padding: 13px 15px;
 }
-#fundo-heading,h2 {
+#reset-fundo-heading {
     display: flex; 
     height: 24px;
     font-size: 22px;
@@ -30,7 +30,7 @@ $font-color:black;
     justify-content: center !important;
 }
 
-h1{
+.reset-maintext{
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
     font-size: 24px;
     font-weight: 400;

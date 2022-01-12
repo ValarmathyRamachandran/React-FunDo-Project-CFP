@@ -23,11 +23,14 @@ $show-color: #202124;
     font-size: 8px !important;
 }
 #SignUp-fundo-heading{
+    display: flex;
+    margin-bottom: -6vh;
     justify-content: left ;
     font-size: 22px;
     line-height: 1.4286;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     margin-left: 8vh  ;
+    font-weight: 500;
 
     #SignUp-blue{
         color:$font-blue;    
@@ -156,7 +159,7 @@ $show-color: #202124;
     line-height: 1.3333;
     font-size: 22px ;
     margin-bottom: 8vh ;
-    margin-left: 7vh ;
+    margin-left: 8vh ;
     font-weight: 400 ;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ;
     letter-spacing: .5;

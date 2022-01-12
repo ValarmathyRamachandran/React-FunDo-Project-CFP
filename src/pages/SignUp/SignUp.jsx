@@ -4,7 +4,9 @@ import { FormHelperText } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import './SignUp.scss';
-import Googlelogo from './GoogleLogo.svg'
+import SignIn from "../SignIn/SignIn";
+import Googlelogo from './GoogleLogo.svg';
+import axios from 'axios';
 
 
 export default class SignUp extends Component {
@@ -30,7 +32,6 @@ export default class SignUp extends Component {
         console.log("in validation");
         let isError = false;
         const error = this.state;
-        console.log(error.firstName);
         error.firstNameError = this.state.firstName === "" ? true : false;
         error.lastNameError = this.state.lastName === "" ? true : false;
         error.userNameError = this.state.userName === "" ? true : false;
@@ -46,9 +47,24 @@ export default class SignUp extends Component {
       };
     
       next = () => {
-        var validated = this.validation();
+        var validated = true;    //this.validation();
         if (validated) {
           console.log("validation done successfully");
+          const data = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            role: 'admin',
+            service: "IT",
+            createdDate: Date.now(),
+            modifiedDate: Date.now(),
+            username: this.state.userName,
+            email: this.state.username
+          };
+
+          axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp?access_token=signup',data)
+        .then((response) => {
+          console.log(response);
+      });
         }
       };
     
@@ -60,6 +76,7 @@ export default class SignUp extends Component {
     
     render() {
         return (
+            
             <form>
             <div className="SignUp-form">
             <h2 id="SignUp-fundo-heading">
@@ -133,7 +150,8 @@ export default class SignUp extends Component {
             <div className="SignUpNext-container">
                 <button type="button" className="SignUpNext-btn" size="small" onClick={this.next}>Next</button>
                 <p className="sign-in-instead">
-                    <a className="signInInstead-text" href="./pages/SignIn/SignIn">Sign in instead </a>
+                    <a className="signInInstead-text" href=" ">Sign in instead</a>
+                        {/* <Link to="./SignIn/SignIn.jsx"></Link> */}
                 </p>
             </div>
 
@@ -145,6 +163,8 @@ export default class SignUp extends Component {
                
             </div>
             </form>
+
+            
             
         );
     }

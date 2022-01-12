@@ -5,6 +5,9 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
+import { Link } from "react-router-dom";
+
+
 
 
 
@@ -12,10 +15,11 @@ function App() {
   return (
     <div className="App">
     
-      {/* <SignUp /> */}
+
+      <SignUp />
       {/* <SignIn />  */}
       {/* <ForgotPassword /> */}
-      < Reset />
+      {/* < Reset /> */}
      
       
     </div>

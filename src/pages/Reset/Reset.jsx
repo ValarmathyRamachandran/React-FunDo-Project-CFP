@@ -45,7 +45,7 @@ export default class Reset extends Component{
         return (
         <form>
         <div className="reset-form">
-        <h2  id="fundo-heading" >
+        <h2  id="reset-fundo-heading" >
             <p id="blue" style={{color: "#1a73e8"}}>F</p>
             <p id="red" style={{color: "red" }}>u</p>
             <p id="yellow" style={{color: "yellow" }}>n</p>
@@ -53,7 +53,7 @@ export default class Reset extends Component{
             <p id="green" style={{color: "green" }}>o</p>
             <p id="red" style={{color: "red" }}>o</p>
         </h2>
-        <h1>Find your email</h1>
+        <h1 className="reset-maintext">Find your email</h1>
         <div className="resetPwd-sub-heading"><span>Enter your password</span>
         </div>
 
@@ -83,6 +83,8 @@ export default class Reset extends Component{
         </div>
         </div>
         </form>
+
+        
         );
     }
 }
