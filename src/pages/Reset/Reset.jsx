@@ -44,7 +44,7 @@ export default class Reset extends Component{
         console.log(this.state);
         return (
         <form>
-        <div className="form">
+        <div className="reset-form">
         <h2  id="fundo-heading" >
             <p id="blue" style={{color: "#1a73e8"}}>F</p>
             <p id="red" style={{color: "red" }}>u</p>
@@ -58,14 +58,14 @@ export default class Reset extends Component{
         </div>
 
         <div className="form-group">
-            <TextField name="resetPassword" id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth
+            <div className="reset-password" ><TextField name="resetPassword" id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth
             error={this.state.resetPasswordError}
             helperText={
               this.state.resetPasswordError
                 ? "Reset Password is required"
                 : " "
             }
-            onChange={(e) => this.changeHandle(e)} /> 
+            onChange={(e) => this.changeHandle(e)} /> </div>
         </div>
         <div className="form-group">
             <TextField id="confirm-pwd" type={"password"} label="Confirm password" variant="outlined"  placeholder="confirm password" size="small"  fullWidth 
