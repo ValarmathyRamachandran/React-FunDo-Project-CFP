@@ -8,11 +8,61 @@ import Googlelogo from './GoogleLogo.svg'
 
 
 export default class SignUp extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          firstName: "",
+          lastName: "",
+          userName:"",
+          SignUpPassword:"",
+          SignUpConfirm:"",
+          firstNameError: false,
+          lastNameError: false,
+          userNameError:false,
+          SignUpPasswordError:false,
+          SignUpConfirmError:false
+     
+        };
+      }
+
+      validation = () => {
+        console.log("in validation");
+        let isError = false;
+        const error = this.state;
+        console.log(error.firstName);
+        error.firstNameError = this.state.firstName === "" ? true : false;
+        error.lastNameError = this.state.lastName === "" ? true : false;
+        error.userNameError = this.state.userName === "" ? true : false;
+        error.SignUpPasswordError = this.state.SignUpPassword === "" ? true : false;
+        error.SignUpConfirmError = this.state.SignUpConfirm === "" ? true : false;
+        
+    
+        this.setState({
+          ...error
+        });
+        return (isError = error.firstNameError || error.lastNameError || error.userNameError 
+            || error.SignUpPasswordError || error.SignUpConfirmError);
+      };
+    
+      next = () => {
+        var validated = this.validation();
+        if (validated) {
+          console.log("validation done successfully");
+        }
+      };
+    
+      changeHandle = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      };
+    
     render() {
         return (
             <form>
             <div className="SignUp-form">
-            <h2  id="SignUp-fundo-heading">
+            <h2 id="SignUp-fundo-heading">
             <p id="SignUp-blue">F</p>
             <p id="SignUp-red">u</p>
             <p id="SignUp-yellow">n</p>
@@ -21,15 +71,34 @@ export default class SignUp extends Component {
             <p id="SignUp-red">o</p>
             </h2>
                 
-            <h3 className="SignUp-create-heading">Create your Google Account</h3>
+            <h3 className="SignUp-create-heading">Create your Fundoo Account</h3>
 
             <div className="SignUpform-group">
-                <div className="SignUp-firstName"><TextField id="first-name" label="First name" variant="outlined"  placeholder="First name" size="small"   /> {' '} </div> 
-                <div className="SignUp-lastName"><TextField id="last-name" label="Last name" variant="outlined" placeholder="Last name"   size="small"  /></div>
+                <div className="SignUp-firstName"><TextField name="firstName" id="first-name" label="First name" variant="outlined"  placeholder="First name" size="small"
+                error={this.state.firstNameError}
+                helperText={
+                  this.state.firstNameError ? "First Name is required" : " "
+                }
+                onChange={(e) => this.changeHandle(e)}   /> {' '} 
+                </div> 
+
+                <div className="SignUp-lastName"><TextField name="lastName" id="last-name" label="Last name" variant="outlined" placeholder="Last name"   size="small" 
+                error={this.state.lastNameError}
+                helperText={
+                  this.state.lastNameError ? "Last Name is required" : " "
+                }
+                onChange={(e) => this.changeHandle(e)} />
+                </div>
             </div>
                    
             <div className="SignUpform-group-username">
-                <div className="SignUp-userName"><TextField  id="User-name" label="Username" variant="outlined" placeholder="Username "size="small" fullWidth  /></div>
+                <div className="SignUp-userName"><TextField name="userName" id="User-name" label="Username" variant="outlined" placeholder="Username "size="small" fullWidth 
+                error={this.state.userNameError}
+                helperText={
+                  this.state.userNameError ? "User Name is required" : " "
+                }
+                onChange={(e) => this.changeHandle(e)} />
+                </div>
                 <FormHelperText className="SignUp-helper-text">  You can use letters,numbers & periods</FormHelperText>
             </div >
                 
@@ -38,8 +107,20 @@ export default class SignUp extends Component {
             </div>
 
             <div className="SignUpform-group">
-                <div className="SignUp-password" ><TextField id="password" label="Password" variant="outlined" placeholder="Password"   size="small" /> </div>{' '}
-                <div className="SignUp-confirm" ><TextField id="confirm" label="Confirm" variant="outlined" placeholder="Confirm"   size="small"  /></div>
+                <div className="SignUp-password" ><TextField name="SignUpPassword" type="password" id="password" label="Password" variant="outlined" placeholder="Password"   size="small" 
+                error={this.state.SignUpPasswordError}
+                helperText={
+                  this.state.SignUpPasswordError ? "Password is required" : " "
+                }
+                onChange={(e) => this.changeHandle(e)}/> </div>{' '}
+
+                <div className="SignUp-confirm" ><TextField name="SignUpConfirm" type="password" id="confirm" label="Confirm" variant="outlined" placeholder="Confirm"   size="small"  
+                error={this.state.SignUpConfirmError}
+                helperText={
+                  this.state.SignUpConfirmError ? "Confirm Password is required" : " "
+                }
+                onChange={(e) => this.changeHandle(e)}/>
+                </div>
             </div>
             <div className="SignUp-pwd-helper-text"><FormHelperText >Use 8 or more characters with a mix of letters, numbers &<br />{' '}symbols</FormHelperText></div>  
            
@@ -50,14 +131,16 @@ export default class SignUp extends Component {
             </div>
 
             <div className="SignUpNext-container">
-                <button type="button" className="SignUpNext-btn" size="small">Next</button>
+                <button type="button" className="SignUpNext-btn" size="small" onClick={this.next}>Next</button>
                 <p className="sign-in-instead">
                     <a className="signInInstead-text" href="./pages/SignIn/SignIn">Sign in instead </a>
                 </p>
             </div>
 
             <div className="logo-image-section">
-                <img className="google-image" src={Googlelogo} alt="" width={244} height={244} />
+               <div> <img className="google-image" src={Googlelogo} alt="" width={244} height={244} />
+                <span className="SignUpimage-text">One account. All of Fundoo <br />
+                working for you.</span></div>
             </div>
                
             </div>
