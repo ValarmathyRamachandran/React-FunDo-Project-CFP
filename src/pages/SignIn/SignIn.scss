@@ -64,6 +64,12 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
     margin-bottom: 10vh;
 }
 
+.SignIn-create-acct-title{
+    text-decoration: none;
+    color: #1a73e8;
+    margin-left: 50vh;
+}
+
 
 
 .SignIn-form-group{
@@ -75,6 +81,7 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 
 
 .SignIn-forgot-email-container{
+    margin-top: -5vh;
     margin-bottom: 5vh;
     font-weight: $fontweight !important;
     margin-right: 49vh !important;
@@ -84,9 +91,10 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
 #SignIn-forgot-email {
     text-decoration: none ;
     margin-bottom: 5vh;
-    margin-top: -1vh;
+    margin-top: -5vh;
     font-size: 14px !important;
     color: $font-blue;
+    margin-left: 7vh;
     
 }
 .SignIn-helper-content{
@@ -95,13 +103,13 @@ $font-blue: #1a73e8;$font-red:red;$font-yellow:yellow;$font-green:green;$fontwei
     line-height: 1.4286;
     margin-left: 10vh;
     color: #5f6368;
-    margin-left: -2vh;
+    margin-left: 7vh;
 
 }
 $color-blue:blue;
 
 .SignIn-learn-more{
-    margin-left: -50vh;
+    margin-left: 7vh;
     text-decoration: none;
     font-size: 14px ;
     color: $font-blue;

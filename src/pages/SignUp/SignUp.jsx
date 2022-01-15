@@ -153,8 +153,8 @@ export default class SignUp extends Component {
             <div className="SignUpNext-container">
                 <button type="button" className="SignUpNext-btn" size="small" onClick={this.next}>Next</button>
                 <p className="sign-in-instead">
-                    <a className="signInInstead-text" href="#">Sign in instead</a>
-                    {/* < Link to ="/SignIn" className="signInInstead-text" >Sign in instead </Link> */}
+                    {/* <a className="signInInstead-text" href="#">Sign in instead</a> */}
+                    < Link to ="/signin" className="signInInstead-text" >Sign in instead </Link> 
                 </p>
             </div>
 

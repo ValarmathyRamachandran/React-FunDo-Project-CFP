@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TextField from '@mui/material/TextField';
 import "./SignIn.scss";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -77,9 +78,8 @@ export class SignIn extends Component {
             />
           </div>
           <div className="SignIn-forgot-email-container">
-            <a id="SignIn-forgot-email" href="#">
-              Forgot email?
-            </a>
+            <a id="SignIn-forgot-email" href=" " >Forgot email?</a>
+            {/* <Link to="/forgotpassword" id="SignIn-forgot-email" >Forgot email?</Link> */}
           </div>
 
           <div className="SignIn-form-group">
@@ -113,7 +113,7 @@ export class SignIn extends Component {
 
           <button className="SignIn-create-acct-btn">
             <div className="SignIn-create-acct-section">
-              <span className="SignIn-create-acct-title">Create account</span>
+              <Link to ="/signup" className="SignIn-create-acct-title">Create account</Link>
             </div>
           </button>
 
