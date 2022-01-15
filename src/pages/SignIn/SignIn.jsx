@@ -33,9 +33,8 @@ export class SignIn extends Component {
     var validated = this.validation();
     if (validated) {
       console.log("validation done successfully");
-    
-        
     }
+    
   };
 
   changeHandle = (e) => {

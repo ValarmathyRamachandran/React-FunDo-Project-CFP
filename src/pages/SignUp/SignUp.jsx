@@ -7,6 +7,8 @@ import './SignUp.scss';
 import SignIn from "../SignIn/SignIn";
 import Googlelogo from './GoogleLogo.svg';
 import axios from 'axios';
+import { Switch, Route } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 export default class SignUp extends Component {
@@ -47,28 +49,29 @@ export default class SignUp extends Component {
       };
     
       next = () => {
-        var validated = true;    //this.validation();
+      
+        var validated = this.validation();
         if (validated) {
           console.log("validation done successfully");
-          const data = {
+        }
+        else{
+            const data = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            role: 'admin',
-            service: "IT",
-            createdDate: Date.now(),
-            modifiedDate: Date.now(),
-            username: this.state.userName,
-            email: this.state.username
+            service: "advance",
+            email: this.state.userName,
+            password: this.state.SignUpPassword
           };
-
-          axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp?access_token=signup',data)
+        console.log(data);
+          axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',data)
         .then((response) => {
           console.log(response);
-      });
-        }
-      };
+          console.log('success');
+        });
+     }
+    }
     
-      changeHandle = (e) => {
+    changeHandle = (e) => {
         this.setState({
           [e.target.name]: e.target.value
         });
@@ -150,8 +153,8 @@ export default class SignUp extends Component {
             <div className="SignUpNext-container">
                 <button type="button" className="SignUpNext-btn" size="small" onClick={this.next}>Next</button>
                 <p className="sign-in-instead">
-                    <a className="signInInstead-text" href=" ">Sign in instead</a>
-                        {/* <Link to="./SignIn/SignIn.jsx"></Link> */}
+                    <a className="signInInstead-text" href="#">Sign in instead</a>
+                    {/* < Link to ="/SignIn" className="signInInstead-text" >Sign in instead </Link> */}
                 </p>
             </div>
 
@@ -162,10 +165,9 @@ export default class SignUp extends Component {
             </div>
                
             </div>
-            </form>
-
-            
-            
-        );
-    }
+      </form>
+    );
+  }
 }
+    
+

@@ -166,37 +166,45 @@ $show-color: #202124;
     font-size: 24px ;
 } 
 
- /* @media screen and (max-width:640px) {  
+@media screen and (max-width:640px) {  
     .google-image {
-      display: none;
+      display: none !important;
     }
-    .form{
-        max-width: 100% !important;
+
+    .SignUp-form{
+        max-width: 200% !important;
+        border: none;
     }
-    .firstName{
-        width:276% !important;
+    .SignUp-firstName{
+        width: 200% !important;
         margin-bottom: 3vh;
+       display: block;
+        padding: 6px 8px;
+      
     }
-    .lastName{
-        width:283%;
+    .SignUp-lastName{
+        
+       
+        padding: 6px 8px;
+        width: 150%;
     }
-    .pwd{
+    .SignUpPassword{
         width: 280%;
     }
-    .confirm{
+    .SignUp-confirm{
         width: 285%;
     }
 
-    h3{
+    .SignUp-create-heading{
         font-size: 22px !important;
         margin-left: 1vh !important;
     }
-    .helper-text{
+    .SignUp-helper-text{
         font-size: 10px !important;
     }
     
 
-    .form{
+    .SIgnUp-form{
         font-size: 14px;
         line-height: 1.4286;
         color: #202124;
@@ -208,41 +216,25 @@ $show-color: #202124;
         margin-top: 2%;
     }
 
-    #first-name{
-        display: flex;
-        padding: 6px 8px;
-        width: 200%;
-    }
-    #last-name{
-        display: flex;
-        padding: 6px 8px;
-        width: 200%;
-        
-    }
-    .userName{
-        width: 133% !important;
+    .SignUp-userName{
+        width: 100% !important;
         padding: 5.2px;
         margin-left: -1vh;
     }
-    .form-group{
+    .SignUpform-group{
         margin-bottom: 3vh !important;
         margin-left: 1vh;
-        width: 100%;
+        width: 150%;
     }
     html, body{
         overflow-x: hidden;
-        }
+    }
 
-        a{
+        .signInInstead-text{
             margin-left: 8vh;
         }
-        .email-link{
+        .SignUpEmail-link{
             font-size:12px !important;
             margin-left: -2vh;
-        }
-        .FormControlLabel{
-                font-size: 12px !important;
-        }
-
-        
-}  */
+        }    
+}  
