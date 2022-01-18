@@ -5,7 +5,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
-import Dashboard from './Component/dashboard/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import {
   BrowserRouter as Router,
   Route,
@@ -21,8 +21,6 @@ const AppWrapper=()=>{
     { path: "/signup", element: <SignUp /> },
     { path: "/signin", element: <SignIn /> },
     
-  
-    // ...
   ]);
   return routes;
 }
