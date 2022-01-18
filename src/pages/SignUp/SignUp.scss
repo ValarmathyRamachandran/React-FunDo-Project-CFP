@@ -153,17 +153,17 @@ $show-color: #202124;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
 }
 .SignUp-create-heading{
-    margin-bottom: 1vh ;
+    margin-top: 5vh ;
     color: #202124;
     font-weight: 400 ;
     line-height: 1.3333;
-    font-size: 22px ;
-    margin-bottom: 8vh ;
+    font-size: 24px ;
+    margin-bottom: 4vh ;
     margin-left: 8vh ;
     font-weight: 400 ;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ;
     letter-spacing: .5;
-    font-size: 24px ;
+    
 } 
 
 @media screen and (max-width:640px) {  
@@ -172,35 +172,48 @@ $show-color: #202124;
     }
 
     .SignUp-form{
-        max-width: 200% !important;
+        width: 100% !important;
         border: none;
     }
     .SignUp-firstName{
-        width: 200% !important;
-        margin-bottom: 3vh;
-       display: block;
-        padding: 6px 8px;
+        
+       display: flex;
+       flex-direction: row;
+       width:100px;
+       padding: 5.2px;
+       margin-left: -8vh;
       
     }
+   
+    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+        width: 300%;
+    }
+    
+   
+  
     .SignUp-lastName{
         
-       
-        padding: 6px 8px;
-        width: 150%;
+        width: 160% !important;
+        padding: 5.2px;
+        margin-left: -8vh;
     }
     .SignUpPassword{
-        width: 280%;
+        width: 300%;
+        margin-left: 1vh !important;
     }
     .SignUp-confirm{
         width: 285%;
     }
 
     .SignUp-create-heading{
-        font-size: 22px !important;
-        margin-left: 1vh !important;
+        font-size: 18px !important;
+        
+        margin-left: -1vh !important;
     }
     .SignUp-helper-text{
         font-size: 10px !important;
+        margin-left: -6vh !important;
+        font-size: 14px !important;
     }
     
 
@@ -214,17 +227,19 @@ $show-color: #202124;
         margin-left: 5%;
         margin-right: -30%;
         margin-top: 2%;
+        width: 100%;
     }
 
     .SignUp-userName{
-        width: 100% !important;
+        width: 140% !important;
         padding: 5.2px;
-        margin-left: -1vh;
+        margin-left: -8vh;
     }
     .SignUpform-group{
-        margin-bottom: 3vh !important;
+        
         margin-left: 1vh;
-        width: 150%;
+        display: flex;
+        flex-direction: column;
     }
     html, body{
         overflow-x: hidden;
@@ -235,6 +250,16 @@ $show-color: #202124;
         }
         .SignUpEmail-link{
             font-size:12px !important;
-            margin-left: -2vh;
+            margin-left: -5vh;
+            font-size: 13px !important;
         }    
+
+        #SignUp-fundo-heading{
+            margin-left: -1vh;
+            font-size: 24px;
+            
+        }
+        .SignUpimage-text{
+            display: none !important;
+        }
 }  

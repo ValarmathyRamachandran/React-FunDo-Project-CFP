@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
+import Dashboard from './Component/dashboard/Dashboard';
 import {
   BrowserRouter as Router,
   Route,
@@ -28,12 +29,12 @@ const AppWrapper=()=>{
 
 function App() {
   return (
-    <Router>
+  //   <Router>
      
-    <AppWrapper />
-    {/* <ForgotPassword />
-    <Reset /> */}
-  </Router>
+  //   <AppWrapper />
+   
+  // </Router>
+  <Dashboard />
   
  
   );
