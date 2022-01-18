@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn/SignIn';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
 import Dashboard from './pages/Dashboard/Dashboard';
+import DisplayNotes from './Component/DisplayNotes/DisplayNotes';
 import {
   BrowserRouter as Router,
   Route,
@@ -33,6 +34,7 @@ function App() {
    
   // </Router>
   <Dashboard />
+  // <DisplayNotes />
   
  
   );

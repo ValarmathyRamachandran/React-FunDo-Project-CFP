@@ -30,6 +30,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import TextField from '@mui/material/TextField';
 import { styled, alpha, useTheme } from '@mui/material/styles';
+import DisplayNotes from '../../Component/DisplayNotes/DisplayNotes';
 
 
 const drawerWidth = 240;
@@ -100,42 +101,44 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const sidebarIcons =
-[ 
-  {
-    Notes:  
-    {
-        text:"Notes",
-        icon:<LightbulbOutlinedIcon/>
-    },
-    Reminders:   
-    {
-      text:"Reminders",
-      icon:<NotificationsOutlinedIcon/>
-    },
-    EditLabels:  
-    {
-      text:"Edit Labels",
-      icon:<BorderColorTwoToneIcon/>
-    },
-    Archive:  
-    {
-      text:"Archive",
-      icon:<ArchiveOutlinedIcon/>
-    },
-    EditLabels:  
-    {
-      text:"Trash",
-      icon:<DeleteOutlineSharpIcon/>
-    },
-  }];
-    
 
 
 export default function MiniDrawer() {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  let sidebarIcons =
+[ 
+  
+     
+    {
+        text:"Notes",
+        icon:<LightbulbOutlinedIcon/>
+    },
+      
+    {
+      text:"Reminders",
+      icon:<NotificationsOutlinedIcon/>
+    },
+     
+    {
+      text:"Edit Labels",
+      icon:<BorderColorTwoToneIcon/>
+    },
+      
+    {
+      text:"Archive",
+      icon:<ArchiveOutlinedIcon/>
+    },
+     
+    {
+      text:"Trash",
+      icon:<DeleteOutlineSharpIcon/>
+    }
+  ];
+    
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -182,6 +185,7 @@ export default function MiniDrawer() {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+
   }));
 
 
@@ -200,12 +204,14 @@ export default function MiniDrawer() {
               
             <MenuIcon />
           </IconButton>
+          
           <Typography className='header-text' variant="h6" noWrap component="div">
-           <img src='https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png' width={'40px'} height={'40px'}></img>
-  
-           <span>Keep</span>
-          </Typography>
-          <Search>
+          
+            </Typography>
+            <img className='logo-img' src='https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png' width={'40px'} height={'40px'}></img>
+            <span className='keep-text'>Keep</span>
+          <Search className='searchIcon-style'>
+          
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -214,8 +220,14 @@ export default function MiniDrawer() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-         <List> <RefreshOutlinedIcon /> <GridViewIcon /> <SettingsOutlinedIcon /><AppsRoundedIcon /></List>
-         <div><CircleRoundedIcon /></div>
+         <ListItem className="left-icons"> 
+         <li className="Refresh-icon"><RefreshOutlinedIcon /></li> 
+         <li className="Grid-icon"><GridViewIcon /></li>
+         <li className="setting-icon"><SettingsOutlinedIcon /></li> 
+         <li className="app-icon"><AppsRoundedIcon /></li>
+         </ListItem>
+         <div className='circle-logo'><CircleRoundedIcon /></div>
+        
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -227,20 +239,12 @@ export default function MiniDrawer() {
         <Divider />
 
         <List>
-            
-          {['Notes', ' Reminders ', 'Edit Labels', 'Archive', 'Trash'].map((text, index) => (
-         /* {sidebarIcons.map((text, icon) => ( */
-            <ListItem LightbulbOutlinedIcon key={text.LightbulbOutlinedIcon} 
-            NotificationsOutlinedIcon key={text.NotificationsOutlinedIcon}
-            BorderColorTwoToneIcon key={text.BorderColorTwoToneIcon}
-            ArchiveOutlinedIcon key={text.ArchiveOutlinedIcon}
-            DeleteOutlineSharpIcon key={text.DeleteOutlineSharpIcon}>
-                
+            {sidebarIcons.map((text,index) =>(
+                <ListItem button key ={text.sidebarIcons}>
               <ListItemIcon>
-             {(index % 1   === 2) ? sidebarIcons.map : <NotificationsOutlinedIcon />}
-                  {/* sidebarIcons.map((icon,index) */}
+             {text.icon}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={text.text} />
             </ListItem>
           ))}
         </List> 
@@ -248,10 +252,11 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
+         <DisplayNotes />
           
         </Typography>
-        
-      </Box>
-    </Box>
+        </Box>
+</Box>
+    
   );
 }

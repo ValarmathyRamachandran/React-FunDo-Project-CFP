@@ -1,0 +1,34 @@
+.DisplayNotes-textareaContainer{
+    margin-top: 10vh;
+    margin-left: 35%;
+    margin-right: 5%;
+    .Textarea-DisplayNotes{
+        width: 80%;
+        font-size: 16px;
+        min-height: 56px;
+        padding: 4px 16px 12px 16px;
+        border: none;
+        padding:3vh;
+        min-height: 28px;
+        box-shadow: 1px 1px 1px 1px #888888;
+        border-radius: 4px;
+    }
+    .DisplayInput-icons{
+        position: absolute;
+        color: gray;
+        position: absolute;
+        margin-top: -8vh;
+        margin-left: 50vh;
+        padding: 2vh;
+        list-style:none;
+        .checkBox-icon{
+            margin-right: 8vh;
+        }
+        .Brush-icon{
+            margin-right: 8vh; 
+        }
+        .Image-icon{
+            margin-right: 5vh; 
+        }
+    }
+}

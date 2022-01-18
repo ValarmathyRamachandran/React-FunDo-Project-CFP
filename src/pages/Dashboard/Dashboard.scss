@@ -4,3 +4,58 @@ $bgcolor:white; $text-color:#5f6368;
     background-color: $bgcolor;
     color: $text-color;
 }
+
+.left-icons{
+    float: right;
+    margin-left: 55vh;
+   list-style-type:none;
+   .Refresh-icon{
+        margin-left: 6vh;
+   }
+   .Grid-icon{
+    margin-left: 6vh;
+   }
+   .setting-icon{
+    margin-left: 6vh;
+   }
+   .app-icon{
+    margin-left: 10vh;
+   }
+}
+body{
+    overflow-x: hidden;
+}
+.header-text{
+    margin-left: 2vh;
+}
+.logo-img{
+    position: relative;
+    z-index: 2;
+    color: #5f6368;
+    margin-left: 2vh;
+}
+.keep-text{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+.searchIcon-style{
+    margin-left: 38vh !important;
+    background-color: #5f6368;
+    z-index: 1;
+}
+.SearchIconWrapper{
+    background-color: #5f6368;
+    z-index: 1;
+}
+.Textarea-Notes{
+    width: 80%;
+    font-size: 16px;
+    min-height: 56px;
+    padding: 4px 16px 12px 16px;
+    border: none;
+    padding:3vh;
+    min-height: 28px;
+    box-shadow: 1px 1px 1px 1px #888888;
+    border-radius: 4px;
+}
+
