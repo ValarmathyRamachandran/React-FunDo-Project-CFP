@@ -1,6 +1,6 @@
-import AxiosSercice from "./Axioservice";
+import Axiossercice from "./Axioservice";
 
-const service = new AxiosSercice();
+const service = new Axiossercice();
 
 let baseurl='http://fundoonotes.incubation.bridgelabz.com/api/';
 
@@ -9,7 +9,7 @@ service.postMethod();
 class UserService{
 
     SignUp(data){
-        service.postMethod(`${baseurl}user/userSignUp`,data)
+       return service.postMethod(`${baseurl}user/userSignUp`,data)
     }
 
     SignIn(data){
@@ -24,3 +24,5 @@ class UserService{
         service.postMethod(`${baseurl}user/reset-password`,data)
     }
 }
+
+export default UserService;

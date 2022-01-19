@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export class AxiosSercice {
 
-postMethod(url,data,header="default"){
-  return axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',data)
+postMethod(url,data,header=false){
+  return axios.post(url,data, header)
 }
 
   

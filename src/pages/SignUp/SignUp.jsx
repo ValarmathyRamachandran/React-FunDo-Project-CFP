@@ -9,6 +9,9 @@ import Googlelogo from './GoogleLogo.svg';
 import axios from 'axios';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import UserService from "../../service/Userservice";
+
+const userService =  new UserService();
 
 
 export default class SignUp extends Component {
@@ -63,7 +66,7 @@ export default class SignUp extends Component {
             password: this.state.SignUpPassword
           };
         console.log(data);
-          axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',data)
+        userService.SignUp(data)
         .then((response) => {
           console.log(response);
           console.log('success');
@@ -153,7 +156,6 @@ export default class SignUp extends Component {
             <div className="SignUpNext-container">
                 <button type="button" className="SignUpNext-btn" size="small" onClick={this.next}>Next</button>
                 <p className="sign-in-instead">
-                    {/* <a className="signInInstead-text" href="#">Sign in instead</a> */}
                     < Link to ="/signin" className="signInInstead-text" >Sign in instead </Link> 
                 </p>
             </div>
