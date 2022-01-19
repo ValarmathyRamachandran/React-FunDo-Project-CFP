@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import TextField from '@mui/material/TextField';
 import "./SignIn.scss";
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import UserService from "../../service/Userservice";
+
+const userService =  new UserService();
 
 export class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      emailOrPhone: "",
+      email: "",
       password: "",
       emailOrPhoneError: false,
       passwordError: false
@@ -20,23 +24,39 @@ export class SignIn extends Component {
     console.log("in validation");
     let isError = false;
     const error = this.state;
-    console.log(error.emailOrPhone);
-    error.emailOrPhoneError = this.state.emailOrPhone === "" ? true : false;
+    console.log(error.email);
+    error.emailError = this.state.email === "" ? true : false;
     error.passwordError = this.state.password === "" ? true : false;
 
     this.setState({
       ...error
     });
-    return (isError = error.emailOrPhoneError || error.passwordError);
+    return (isError = error.emailError || error.passwordError);
   };
 
   next = () => {
     var validated = this.validation();
-    if (validated) {
+    if (!validated) {
       console.log("validation done successfully");
-    }
     
-  };
+      let data = {
+        email: this.state.email,
+        password: this.state.password,
+        
+      }
+      
+      userService.SignIn(data)
+      .then((response) => {
+        console.log(response);
+        console.log('success');
+        
+        window.location.href="http://localhost:4200/dashboard";
+       
+      })
+      
+      .catch(err => { console.log(err) });
+      }
+    }
 
   changeHandle = (e) => {
     this.setState({
@@ -62,15 +82,15 @@ export class SignIn extends Component {
 
           <div className="SignIn-form-group">
             <TextField
-              name="emailOrPhone"
+              name="email"
               id="SignIn-email-or-phone"
               label="Email or phone"
               variant="outlined"
               placeholder="Email or phone"
               fullWidth
-              error={this.state.emailOrPhoneError}
+              error={this.state.emailError}
               helperText={
-                this.state.emailOrPhoneError
+                this.state.emailError
                   ? "Email or Phone number is required"
                   : " "
               }
@@ -78,8 +98,8 @@ export class SignIn extends Component {
             />
           </div>
           <div className="SignIn-forgot-email-container">
-            <a id="SignIn-forgot-email" href=" " >Forgot email?</a>
-            {/* <Link to="/forgotpassword" id="SignIn-forgot-email" >Forgot email?</Link> */}
+            {/* <a id="SignIn-forgot-email" href=" " >Forgot email?</a> */}
+            <Link to="/forgotpassword" id="SignIn-forgot-email" >Forgot email?</Link>
           </div>
 
           <div className="SignIn-form-group">

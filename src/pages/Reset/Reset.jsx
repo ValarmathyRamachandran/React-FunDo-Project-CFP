@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import TextField from '@mui/material/TextField';
 import './Reset.scss';
+import UserService from "../../service/Userservice";
+
+const userService =  new UserService();
 
 export default class Reset extends Component{
     constructor(props) {
@@ -30,26 +33,23 @@ export default class Reset extends Component{
     
       next = () => {
         var validated = this.validation();
-        if (validated) {
+        if (!validated) {
           console.log("validation done successfully");
-        }
-      //   else{
-      //     const data = {
         
-      //     service: "advance",
-      //     resetPassword: this.state.resetPassword,
-      //     confirmPassword: this.state.confirmPassword
-      //   };
-      // console.log(data);
-      //   axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset-password',data)
-      // .then((response) => {
-      //   console.log(response);
-      //   console.log('success');
-      // });
-  //  }
-      // }
-  
-      };
+          let data = {
+          resetPassword: this.state.resetPassword,
+          confirmPassword: this.state.confirmPassword,
+        }
+     
+        
+        userService.Reset(data)
+        .then((response) => {
+          console.log(response);
+          console.log('success');  
+        })
+        .catch(err => { console.log(err) });
+        }
+      }
     
       changeHandle = (e) => {
         this.setState({

@@ -13,7 +13,7 @@ class UserService{
     }
 
     SignIn(data){
-        service.postMethod(`${baseurl}user/login`,data)
+        return service.postMethod(`${baseurl}user/login`,data)
     }
 
     ForgotPassword(data){

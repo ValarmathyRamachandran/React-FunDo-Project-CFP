@@ -54,24 +54,24 @@ export default class SignUp extends Component {
       next = () => {
       
         var validated = this.validation();
-        if (validated) {
+        if (!validated) {
           console.log("validation done successfully");
-        }
-        else{
-            const data = {
+      
+            let data = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             service: "advance",
             email: this.state.userName,
             password: this.state.SignUpPassword
-          };
-        console.log(data);
+          }
+      
         userService.SignUp(data)
         .then((response) => {
           console.log(response);
-          console.log('success');
-        });
-     }
+          console.log('success');  
+        })
+        .catch(err => { console.log(err) });
+      }
     }
     
     changeHandle = (e) => {

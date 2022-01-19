@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import './ForgotPassword.scss';
 import TextField from '@mui/material/TextField';
+import UserService from "../../service/Userservice";
+
+const userService =  new UserService();
 
 export default class ForgotPassword extends Component{
-
-    
-        constructor(props) {
+      constructor(props) {
             super(props);
         
             this.state = {
@@ -30,10 +31,19 @@ export default class ForgotPassword extends Component{
         
           next = () => {
             var validated = this.validation();
-            if (validated) {
+            if (!validated) {
               console.log("validation done successfully");
+              let data = {
+                "email": this.state.forgotpwdEmailOrphone,
             }
-          };
+            userService.ForgotPassword(data)
+            .then((response) => {
+              console.log(response);
+              console.log('success');  
+            })
+            .catch(err => { console.log(err) });
+            }
+          }
         
           changeHandle = (e) => {
             this.setState({

@@ -21,6 +21,9 @@ const AppWrapper=()=>{
   let routes = useRoutes([
     { path: "/signup", element: <SignUp /> },
     { path: "/signin", element: <SignIn /> },
+    { path:"/forgotpassword", element:<ForgotPassword />},
+    { path:"/reset", element:<Reset />},
+    { path:"/dashboard", element:<Dashboard />}
     
   ]);
   return routes;
@@ -28,13 +31,13 @@ const AppWrapper=()=>{
 
 function App() {
   return (
-  //   <Router>
+    <Router>
      
-  //   <AppWrapper />
+    <AppWrapper />
    
-  // </Router>
-  <Dashboard />
-  // <TakeANote/>
+  </Router>
+  // <Dashboard />
+  // // <TakeANote/>
   
  
   );
