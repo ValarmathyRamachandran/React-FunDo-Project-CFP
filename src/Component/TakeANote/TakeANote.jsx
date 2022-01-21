@@ -31,9 +31,7 @@ export class TakeANote extends Component {
 
       
     handleClose = () => {
-      this.setState({
-        openTakeNote: true
-      })
+      
        
         let data = {
           "title": this.state.title,
@@ -44,9 +42,12 @@ export class TakeANote extends Component {
         .then((response) => {
           console.log(response);
           console.log('success');
+          
             localStorage.setItem("title",response.data.title)
             // window.location.href="http://localhost:4200/dashboard";
-         
+            this.setState({
+              openTakeNote: true
+            })
         })
         
         .catch(err => { console.log(err) });
