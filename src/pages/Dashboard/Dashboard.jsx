@@ -35,6 +35,8 @@ import TakeANote from '../../Component/TakeANote/TakeANote';
 
 
 
+
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -252,6 +254,7 @@ export default function MiniDrawer() {
         <DrawerHeader />
         <Typography paragraph>
           <Notes />
+      
           
         </Typography>
         </Box>

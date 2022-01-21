@@ -1,39 +1,64 @@
 import React, { Component } from 'react';
-import InputUnstyled from '@mui/base/InputUnstyled';
-import ListItem from '@mui/material/ListItem';
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
-import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import Icons from "../Notes-Icons/Icons";
-import NoteService from "../../service/NoteService";
-import axios from "axios";
 import './DisplayNote.scss';
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import AlertDialog from '../AlertDialog';
+
 export class DisplayNotes extends Component {
   constructor(props) {
     super(props);
     console.log(this.props.displayallNotes);
     this.state = {
-        
+      
+      // openAlert:false,
+      // setOpenAlert:false,
+    
     };
   }
+  // handleClickOpen = () => {
+  //   this.setState({
+  //     openAlert: true
+  //   })
+  // };
+
+  //  handleAlertClose = () => {
+  //   this.setState({
+  //     setOpenAlert: false
+  //   })
+  // };
+
+ 
 
 render()
   {  
     
   return (
         <div className="DisplayNote-Container">
+
           {this.props.displayallNotes.map((item,index) => ( 
-              <div className="DisplayNote-box" key={item.title} > 
+              <div className="DisplayNote-box" key={item.title}  onClick={this.handleClickOpen} > 
                    { item.title }<br />
-                   { item.description }
+                  <div className="desc-text"> { item.description } </div>
                    <Icons />
+                   <AlertDialog title={item.title} description={item.description}></AlertDialog>
               </div>
+              
               ))
+             
             }
-            </div>
+             
+
+      </div>
         );
   }
 }
 
 
 export default DisplayNotes;
+
+

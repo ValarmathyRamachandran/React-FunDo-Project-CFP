@@ -1,23 +1,33 @@
 .DisplayNote-Container{
   
     display: flex;
-    padding: 10px;
-    flex-direction: column;
-    height: 100px;
-    width: 100%;
+    padding:20px;
+    margin-right: 2%;
+    flex-wrap: wrap;   
+    height: 150px;
+    width: 125%;
     border: none;
+    margin-top: 5%;
   
     
     .DisplayNote-box{
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
+        
+        justify-items: center;
         box-shadow: 1px 1px 1px 1px gray;
         color: rgba(0, 0, 0, 0.54);
         padding: 20px;
         border-radius: 4px;
+        margin-right: 2%;
         height: 100px;
-        width: 35%;
+        width: 25%;
         margin-bottom: 5%;
+
+        .desc-text{
+            word-wrap: break-word;
+        }
         .TakeNoteExpand-icons{
             display: none;
 
