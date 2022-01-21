@@ -10,9 +10,9 @@ export default class Reset extends Component{
         super(props);
     
         this.state = {
-          resetPassword: "",
+          newPassword: "",
           confirmPassword: "",
-          resetPasswordError: false,
+          newPasswordError: false,
           confirmPasswordError: false
         };
       }
@@ -22,33 +22,35 @@ export default class Reset extends Component{
         let isError = false;
         const error = this.state;
         console.log(error.resetPassword);
-        error.resetPasswordError = this.state.resetPassword === "" ? true : false;
+        error.newPasswordError = this.state.newPassword === "" ? true : false;
         error.confirmPasswordError = this.state.confirmPassword === "" ? true : false;
     
         this.setState({
           ...error
         });
-        return (isError = error.resetPasswordError || error.confirmPasswordError);
+        return (isError = error.newPasswordError || error.confirmPasswordError);
       };
     
       next = () => {
         var validated = this.validation();
         if (!validated) {
           console.log("validation done successfully");
+          if(this.state.newPassword === this.state.confirmPassword){
         
           let data = {
-          resetPassword: this.state.resetPassword,
-          confirmPassword: this.state.confirmPassword,
-        }
-     
-        
+          "newPassword": this.state.confirmPassword
+          // confirmPassword: this.state.confirmPassword,
+          }
         userService.Reset(data)
         .then((response) => {
           console.log(response);
           console.log('success');  
+         
+          // localStorage.setItem('token',header)
         })
         .catch(err => { console.log(err) });
         }
+      }
       }
     
       changeHandle = (e) => {
@@ -74,10 +76,10 @@ export default class Reset extends Component{
         </div>
 
         <div className="form-group">
-            <div className="reset-password" ><TextField name="resetPassword" id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth
-            error={this.state.resetPasswordError}
+            <div className="reset-password" ><TextField name="newPassword" id="reset-pwd" type={"password"} label="Reset password" variant="outlined"  placeholder="reset password" size="small"  fullWidth
+            error={this.state.newPasswordError}
             helperText={
-              this.state.resetPasswordError
+              this.state.newPasswordError
                 ? "Reset Password is required"
                 : " "
             }
@@ -85,7 +87,7 @@ export default class Reset extends Component{
         </div>
         <div className="form-group">
             <TextField id="confirm-pwd" type={"password"} label="Confirm password" variant="outlined"  placeholder="confirm password" size="small"  fullWidth 
-            error={this.state.confirmPasswordError}
+            error={this.state.confirmPasswordError} name="confirmPassword"
             helperText={
               this.state.confirmPasswordError
                 ? "Confirm Password is required"

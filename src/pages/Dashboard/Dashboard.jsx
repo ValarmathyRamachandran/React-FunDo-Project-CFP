@@ -28,10 +28,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import GridViewIcon from '@mui/icons-material/GridView';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
-import TextField from '@mui/material/TextField';
 import { styled, alpha, useTheme } from '@mui/material/styles';
-import TakeANote from '../../Component/TakeANote/TakeANote';
+import Notes from '../Notes/Notes';
 import DisplayNotes from '../../Component/DisplayNotes/DisplayNotes';
+import TakeANote from '../../Component/TakeANote/TakeANote';
+
 
 
 const drawerWidth = 240;
@@ -186,6 +187,7 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+    let drawerWidth= 150;
   };
 
 
@@ -230,7 +232,7 @@ export default function MiniDrawer() {
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? < MenuIcon/> : <MenuIcon />}
+           
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -249,8 +251,8 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
-         <TakeANote />
-          <DisplayNotes />
+          <Notes />
+          
         </Typography>
         </Box>
 </Box>

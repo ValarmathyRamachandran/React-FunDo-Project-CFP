@@ -1,0 +1,30 @@
+.DisplayNote-Container{
+  
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+    border: none;
+  
+    
+    .DisplayNote-box{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 1px 1px 1px 1px gray;
+        color: rgba(0, 0, 0, 0.54);
+        padding: 20px;
+        border-radius: 4px;
+        height: 100px;
+        width: 35%;
+        margin-bottom: 5%;
+        .TakeNoteExpand-icons{
+            display: none;
+
+            &:hover{
+                display: block;}
+            
+        }
+        
+    }
+}

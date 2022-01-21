@@ -19,11 +19,12 @@ import ReactDOM from 'react-dom';
 
 const AppWrapper=()=>{
   let routes = useRoutes([
-    { path: "/signup", element: <SignUp /> },
+    { path: "/", element: <SignUp /> },
     { path: "/signin", element: <SignIn /> },
     { path:"/forgotpassword", element:<ForgotPassword />},
-    { path:"/reset", element:<Reset />},
+    { path:"/resetpassword", element:<Reset />},
     { path:"/dashboard", element:<Dashboard />}
+    
     
   ]);
   return routes;
@@ -35,11 +36,7 @@ function App() {
      
     <AppWrapper />
    
-  </Router>
-  // <Dashboard />
-  // // <TakeANote/>
-  
- 
+    </Router> 
   );
 }
 

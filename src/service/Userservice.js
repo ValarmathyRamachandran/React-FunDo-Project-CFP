@@ -4,7 +4,15 @@ const service = new Axiossercice();
 
 let baseurl='http://fundoonotes.incubation.bridgelabz.com/api/';
 
-service.postMethod();
+var currenturl=window.location.href.toString().split('/resetpassword/');
+console.log(currenturl[1]);
+
+let header={
+    headers:{
+        Authorization:currenturl[1]
+    }
+}
+
 
 class UserService{
 
@@ -17,11 +25,11 @@ class UserService{
     }
 
     ForgotPassword(data){
-        service.postMethod(`${baseurl}user/reset`,data)    
+        return service.postMethod(`${baseurl}user/reset`,data)    
     }
 
     Reset(data){
-        service.postMethod(`${baseurl}user/reset-password`,data)
+        return service.postMethod(`${baseurl}user/reset-password`,data,header)
     }
 }
 
