@@ -7,7 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import AlertDialog from '../AlertDialog';
+import AlertDialog from '../AlertDialogBox/AlertDialog';
 
 export class DisplayNotes extends Component {
   constructor(props) {
@@ -15,22 +15,11 @@ export class DisplayNotes extends Component {
     console.log(this.props.displayallNotes);
     this.state = {
       
-      // openAlert:false,
-      // setOpenAlert:false,
+     
     
     };
   }
-  // handleClickOpen = () => {
-  //   this.setState({
-  //     openAlert: true
-  //   })
-  // };
-
-  //  handleAlertClose = () => {
-  //   this.setState({
-  //     setOpenAlert: false
-  //   })
-  // };
+ 
 
  
 

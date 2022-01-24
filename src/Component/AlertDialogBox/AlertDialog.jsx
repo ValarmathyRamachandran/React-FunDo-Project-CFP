@@ -6,6 +6,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
+import './AlertDialog.scss';
+import Icons from "../Notes-Icons/Icons";
+
+
 
 export default function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -21,10 +25,11 @@ export default function AlertDialog(props) {
   const title = "test"; 
 
   return (
-    <div >
-      <div  className="DisplayNote-Container" onClick={handleClickOpen}>
+    <div className="AlertDialog-Container">
+      <div  className="AlertDialog-box" onClick={handleClickOpen}>
         {/* Open alert dialog */}
       </div>
+      <div></div>
       
       <Dialog
         open={open}
@@ -39,13 +44,10 @@ export default function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <div>
-            <ImageOutlinedIcon />
+          <div className="AlertIcons-container">
+            <Icons />
             <Button onClick={handleClose}>Close</Button>
           </div>
-          {/* <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

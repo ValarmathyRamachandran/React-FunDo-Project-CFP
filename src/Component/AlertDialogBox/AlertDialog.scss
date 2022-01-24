@@ -1,0 +1,33 @@
+.AlertDialog-Container{
+  
+    display: flex;
+    padding:20px;
+    margin-right: 2%;
+    flex-wrap: wrap;   
+    height: 150px;
+    width: 125%;
+    border: none;
+    margin-top: 5%;
+  
+    .AlertDialog-box{
+        display: flex;
+        padding: 20px;
+        flex-wrap: wrap;
+        height: 150px;
+        width: 464%;
+        border: none;
+        margin-top: -29%;
+        margin-left: -13%;
+    }
+    .AlertIcons-container{
+        display: flex;
+        width: 40%;
+        justify-content:space-between;
+        color: #5f6368;
+        size: 10%;
+    }
+}
+.ThreeDotsIcons-list{
+    z-index: 2;
+    list-style: none;
+}
