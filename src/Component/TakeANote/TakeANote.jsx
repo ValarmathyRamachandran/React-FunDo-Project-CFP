@@ -8,6 +8,7 @@ import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import Icons from "../Notes-Icons/Icons";
 import NoteService from "../../service/NoteService";
+import { SliderValueLabel } from "@mui/material";
 
 const noteService =  new NoteService();
 
@@ -18,7 +19,8 @@ export class TakeANote extends Component {
         this.state = {
           openTakeNote:true,  
           title:"",
-          description: ""
+          description: "",
+          bgcolor:""
          
         };
       }
@@ -29,21 +31,35 @@ export class TakeANote extends Component {
         })
       }
 
+      changeColor =() =>{
+        this.setState({
+          "bgcolor":this.state.bgcolor
+        });
+      };
+
       
     handleClose = () => {
       
-       
-        let data = {
-          "title": this.state.title,
-          "description": this.state.description,
-        }
+      var formData = new FormData();
+      
+        // let data = {
+        //   "title": this.state.title,
+        //   "description": this.state.description,
+        //   "bgcolor":this.state.bgcolor
+        
 
-        noteService.addNote(data)
+        formData.append("title",this.state.title);
+        formData.append("description",this.state.description);
+        formData.append("color",this.state.bgcolor);
+    
+        noteService.addNote(formData)
         .then((response) => {
           console.log(response);
           console.log('success');
+          this.props.getnotes();
+
           
-            localStorage.setItem("title",response.data.title)
+            // localStorage.setItem("title",response.data.title)
             // window.location.href="http://localhost:4200/dashboard";
             this.setState({
               openTakeNote: true
@@ -67,8 +83,8 @@ export class TakeANote extends Component {
             { 
             this.state.openTakeNote?
 
-        <div className='DisplayNotes-textareaContainer'>
-        <textarea  className="Textarea-DisplayNotes" type="textarea" 
+        <div className='TakeNotes-textareaContainer'>
+        <input  className="Textarea-DisplayNotes" type="input" 
           name="Title" placeholder= "Take a note..." onClick={this.handleOpen}
         />
         <div  className="DisplayInput-icons">
@@ -79,15 +95,15 @@ export class TakeANote extends Component {
         </div>
       :
 
-          <div className='TakeNote-expandContainer'>
-          <textarea  className="Textarea-TakeaNote" type="textarea" name="title" 
-          placeholder= "Title..."
+          <div className='TakeNote-expandContainer' style={{backgroundColor:this.state.bgcolor}} >
+          <input  className="Textarea-TakeaNote" type="textarea" name="title" 
+          placeholder= "Title" 
           onChange={(e) => this.changeHandle(e)}/>
           <textarea  className="Textarea-TakeaNote" type="textarea" name="description" 
           placeholder= "Take a note..." onChange={(e) => this.changeHandle(e)} />
           <div className="icon-container">
            
-          <Icons /> 
+          <Icons onClick={this.changeColor} onClick={this.handleClick} />
           <div className="takenote-close">
           <button className="takenote-close-btn" onClick={this.handleClose}>Close</button>
           </div>

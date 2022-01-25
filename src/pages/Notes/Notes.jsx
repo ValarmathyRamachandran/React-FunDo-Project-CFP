@@ -23,12 +23,13 @@ export class Notes extends Component {
                     // title:res.data.data.data.title,
                     // description:res.data.data.data.description
                   })
+                  console.log(this.state.getAllNotes);
                 })
                 .catch(err => {
                   console.log(err)
                 })
 
-                console.log(this.state.getAllNotes);
+                
         }
 
   
@@ -36,8 +37,7 @@ export class Notes extends Component {
     render() {
         return (
             <div>
-                <TakeANote /> 
-                
+                <TakeANote getnotes={this.getAllNotes} /> 
                 <DisplayNotes  displayallNotes={this.state.getAllNotes}/>
             </div>
         )

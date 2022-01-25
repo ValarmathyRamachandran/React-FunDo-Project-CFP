@@ -14,12 +14,12 @@
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        
+        border: 1px solid transparent;
         justify-items: center;
         box-shadow: 1px 1px 1px 1px gray;
         color: rgba(0, 0, 0, 0.54);
         padding: 20px;
-        border-radius: 4px;
+        border-radius: 8px;
         margin-right: 2%;
         height: 100px;
         width: 25%;
@@ -29,7 +29,7 @@
             word-wrap: break-word;
         }
         .TakeNoteExpand-icons{
-            display: none;
+           
 
             &:hover{
                 display: block;}

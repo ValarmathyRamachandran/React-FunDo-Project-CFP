@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import InputBase from '@mui/material/InputBase';
@@ -23,6 +24,7 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import DeleteOutlineSharpIcon from '@mui/icons-material/DeleteOutlineSharp';
 import { sizeHeight } from '@mui/system';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import './Dashboard.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import GridViewIcon from '@mui/icons-material/GridView';
@@ -46,7 +48,8 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  overflowY:'hidden',
+  overflowY: 'hidden'
+  
 });
 
 const closedMixin = (theme) => ({
@@ -81,6 +84,7 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
+    marginLeft: drawerWidth,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -145,15 +149,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }));
 
 
-export default function MiniDrawer() {
+  export default function MiniDrawer() {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   let sidebarIcons =
-[ 
-  
-     
+  [ 
     {
         text:"Notes",
         icon:<LightbulbOutlinedIcon/>
@@ -183,18 +185,11 @@ export default function MiniDrawer() {
 
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    setOpen(!open);
   };
 
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-    let drawerWidth= 150;
-  };
-
-
-
-  return (
+return (
     <Box sx={{ display: 'flex', backgroundColor: '#fff', border:'.5px solid lightgray', }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -203,9 +198,7 @@ export default function MiniDrawer() {
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
-            edge="start"
-            style={{}}
-          >
+            edge="start">
               
             <MenuIcon />
           </IconButton>
@@ -217,26 +210,22 @@ export default function MiniDrawer() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-         <ListItem className="left-icons"> 
+         <ListItem className="rightMenu-icons"> 
          <li className="Refresh-icon"><RefreshOutlinedIcon /></li> 
-         <li className="Grid-icon"><GridViewIcon /></li>
+         <li className="Grid-icon"><ViewStreamOutlinedIcon /></li>
          <li className="setting-icon"><SettingsOutlinedIcon /></li> 
          <li className="app-icon"><AppsRoundedIcon /></li>
          </ListItem>
-         <div className='circle-logo'><CircleRoundedIcon /></div>
+          <div className="Circle-color-icon" CircleRoundedIcon > < CircleRoundedIcon /></div>
         
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-           
-          </IconButton>
-        </DrawerHeader>
+        <DrawerHeader></DrawerHeader>
         <Divider />
 
         <List>
@@ -254,11 +243,9 @@ export default function MiniDrawer() {
         <DrawerHeader />
         <Typography paragraph>
           <Notes />
-      
-          
         </Typography>
         </Box>
-</Box>
+    </Box>
     
   );
 }

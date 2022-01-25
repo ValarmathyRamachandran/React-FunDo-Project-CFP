@@ -7,70 +7,63 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Popper from '@mui/material/Popper';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
-import Fade from '@mui/material/Fade';
-import Paper from '@mui/material/Paper';
-import ColorPopper from "./ColorPopper";
-import ThreeDotsIconPopper from "./ThreeDotsIconPopper";
+import Popover from '@mui/material/Popover';
+import { listItemButtonClasses, MenuItem } from "@mui/material";
 import './Icons.scss';
-import { ListItem } from "@mui/material";
-import Popover from "@mui/material/Popover";
-
+import ColorPopper from "./ColorPopper/ColorPopper";
 
 export class Icons extends Component {
     constructor(props){
         super(props);
     
         this.state ={
-          anchorEl: null,
-         setAnchorEl:null
-        }
-      }
+            anchorEl: false,
+            
+        
+        };
+    }
+    handleClick = event => this.setState({ anchorEl: event.currentTarget })
+    handleClose = () => this.setState({ anchorEl: false })
 
-      handleClick = event => this.setState({anchorEl:event.currentTarget})
-      
+    Color=(value) =>{
+        this.props.changeColor(value);
+    }
 
-
+    
     render() {
-        const { anchorEl } = this.state
+        const { anchorEl} = this.state
         return (
-            <div  className="TakeNoteExpand-icons">
+            <div  className="iconsList" >
             <AddAlertOutlinedIcon />
             <PersonAddAlt1OutlinedIcon />
-            < ColorLensOutlinedIcon  onClick={this.handleClick}/>
-            <Popover
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "left"
-                      }}
-                ><div  className="color-list-container">
-                    <div className="color-red" ></div>
-                    <div className="color-yellow"></div>
-                    <div className="color-green"></div>
-                    <div className="color-teal"></div>
-                    <div className="color-blue"></div>
-                    <div className="color-darkBlue"></div>
-                    <div className="color-purple"></div>
-                    <div className="color-pink"></div>
-                    <div className="color-brown"></div>
-                    <div className="color-gray"></div>
-                   
-                </div>
-                       
-                </Popover>
-
-
-
+            <ColorPopper onClick={this.handleClick} onClick={this.changeColor}  />
             <ImageOutlinedIcon />
             <ArchiveOutlinedIcon />
-            {/* <MoreVertOutlinedIcon /> */}
-            <ThreeDotsIconPopper  />
-             </div>
+
+            <div>
+          <MoreVertOutlinedIcon onClick={this.handleClick} />
+          <Popover
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={this.handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left"
+            }}>
+            <Typography sx={{ p: 1 , zIndex:'3'}}>
+                <MenuItem>Delete note </MenuItem>
+                <MenuItem> Add label </MenuItem>
+                <MenuItem>Add drawing </MenuItem>
+                <MenuItem>Make a copy</MenuItem>
+                <MenuItem>Show checkboxes</MenuItem>
+                {/* <MenuItem>Copy to Google Docs</MenuItem> */}
+            </Typography>
+          </Popover>
+        </div>
+        </div>
     
         )
     }
