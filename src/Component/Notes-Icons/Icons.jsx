@@ -25,11 +25,6 @@ export class Icons extends Component {
     }
     handleClick = event => this.setState({ anchorEl: event.currentTarget })
     handleClose = () => this.setState({ anchorEl: false })
-
-    Color=(value) =>{
-        this.props.changeColor(value);
-    }
-
     
     render() {
         const { anchorEl} = this.state
@@ -37,7 +32,7 @@ export class Icons extends Component {
             <div  className="iconsList" >
             <AddAlertOutlinedIcon />
             <PersonAddAlt1OutlinedIcon />
-            <ColorPopper onClick={this.handleClick} onClick={this.changeColor}  />
+            <ColorPopper onClick={this.handleClick} changeColor={this.props.changeColor}  />
             <ImageOutlinedIcon />
             <ArchiveOutlinedIcon />
 
@@ -59,7 +54,7 @@ export class Icons extends Component {
                 <MenuItem>Add drawing </MenuItem>
                 <MenuItem>Make a copy</MenuItem>
                 <MenuItem>Show checkboxes</MenuItem>
-                {/* <MenuItem>Copy to Google Docs</MenuItem> */}
+                
             </Typography>
           </Popover>
         </div>

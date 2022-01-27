@@ -18,7 +18,10 @@ class NoteService {
     }
 
     getNote(){
-        return noteService.getMethod(`${baseurl}/notes/getNotesList`,headerConfig);
+        return noteService.getMethod(`${baseurl}notes/getNotesList`,headerConfig);
+    }
+    changesColorNotes(formData){
+        return noteService.postMethod(`${baseurl}notes/changesColorNotes`,formData,headerConfig);
     }
 }
 

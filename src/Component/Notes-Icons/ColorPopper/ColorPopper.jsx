@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import Popover from '@mui/material/Popover';
 import '../ColorPopper/colorPopper.scss';
@@ -77,7 +76,13 @@ export class ColorPopper extends Component {
     }
   }
 
+  
   handleClick = event => this.setState({anchorEl:event.currentTarget});
+ 
+  
+  color=(clr)=>{
+    this.props.changeColor(clr);
+  }
 
 render() {
     const { anchorEl } = this.state
@@ -94,10 +99,10 @@ render() {
                     horizontal: "left"
                   }}>
 
-            <div className="color-list-container">
-            {colorPopperList.map((text,index) =>(
-            <div button key ={text.colorPopperList}>
-              <div className="color-popper-icons" style={{ backgroundColor:text.bgcolor}}></div>
+            <div className="color-list-container" >
+            {colorPopperList.map((item,index) =>(
+            <div button key ={index} >
+              <div className="color-popper-icons" onClick={() =>this.props.changeColor(item.bgcolor)} style={{ backgroundColor:item.bgcolor}}></div>
             </div>))}
           </div>
         </Popover>

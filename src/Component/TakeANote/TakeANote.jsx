@@ -20,7 +20,7 @@ export class TakeANote extends Component {
           openTakeNote:true,  
           title:"",
           description: "",
-          bgcolor:""
+          color:"#ffffff"
          
         };
       }
@@ -30,45 +30,44 @@ export class TakeANote extends Component {
           openTakeNote: false
         })
       }
-
-      changeColor =() =>{
+      
+      
+      
+      changeColor=(value)=>{
+        // console.log('test from TakeAnote',value);
         this.setState({
-          "bgcolor":this.state.bgcolor
-        });
-      };
+            color: value
+        })
+      }
 
       
     handleClose = () => {
       
       var formData = new FormData();
-      
-        // let data = {
-        //   "title": this.state.title,
-        //   "description": this.state.description,
-        //   "bgcolor":this.state.bgcolor
-        
 
         formData.append("title",this.state.title);
         formData.append("description",this.state.description);
-        formData.append("color",this.state.bgcolor);
-    
+        formData.append("color",this.state.color);
+      
         noteService.addNote(formData)
         .then((response) => {
           console.log(response);
           console.log('success');
           this.props.getnotes();
 
-          
-            // localStorage.setItem("title",response.data.title)
-            // window.location.href="http://localhost:4200/dashboard";
             this.setState({
-              openTakeNote: true
+              openTakeNote: true,
+              title: '',
+              description: '',
+              color:'#ffffff'
             })
         })
         
         .catch(err => { console.log(err) });
        
       }
+
+
 
       changeHandle = (e) => {
         this.setState({
@@ -95,15 +94,15 @@ export class TakeANote extends Component {
         </div>
       :
 
-          <div className='TakeNote-expandContainer' style={{backgroundColor:this.state.bgcolor}} >
+          <div className='TakeNote-expandContainer' style={{backgroundColor:this.state.color}} >
           <input  className="Textarea-TakeaNote" type="textarea" name="title" 
-          placeholder= "Title" 
+          placeholder= "Title" style={{backgroundColor:this.state.color}}
           onChange={(e) => this.changeHandle(e)}/>
           <textarea  className="Textarea-TakeaNote" type="textarea" name="description" 
-          placeholder= "Take a note..." onChange={(e) => this.changeHandle(e)} />
+          placeholder= "Take a note..." onChange={(e) => this.changeHandle(e)}  style={{backgroundColor:this.state.color}}/>
           <div className="icon-container">
            
-          <Icons onClick={this.changeColor} onClick={this.handleClick} />
+          <Icons changeColor={this.changeColor} />
           <div className="takenote-close">
           <button className="takenote-close-btn" onClick={this.handleClose}>Close</button>
           </div>
