@@ -15,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { useHistory } from "react-router-dom";  
 import InputBase from '@mui/material/InputBase';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
@@ -173,7 +174,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       
     {
       text:"Archive",
-      icon:<ArchiveOutlinedIcon/>
+      icon:<ArchiveOutlinedIcon onClick={() =>this.props.history.push('/Archive')}/>
     },
      
     {
@@ -230,7 +231,7 @@ return (
 
         <List>
             {sidebarIcons.map((text,index) =>(
-                <ListItem button key ={text.sidebarIcons}>
+                <ListItem button key ={index}>
               <ListItemIcon>
              {text.icon}
               </ListItemIcon>

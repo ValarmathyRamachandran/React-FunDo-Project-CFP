@@ -12,39 +12,49 @@ import Icons from "../Notes-Icons/Icons";
 
 
 export default function AlertDialog(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(props.visible);
+console.log(open, 'Open');
+console.log(props.visible, 'visible');
+  // const handleAlertClose = () => {
+  //   setOpen(false);
+  //   props.closeAlert();
+  // };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  React.useEffect(()=>{
+    setOpen(props.visible);
+  },[props.visible]);
+// const [open, setOpen] = React.useState(props.visible);
 
-  const handleAlertClose = () => {
-    setOpen(false);
-  };
+
+
+const handleAlertClose = () => {
+  setOpen(false);
+  
+}
 
 
   return (
     <div className="AlertDialog-Container">
-      <div  className="AlertDialog-box" onClick={handleClickOpen}>
+      <div  className="AlertDialog-box"  >
         {/* Open alert dialog */}
       </div>
       <div></div>
       
-      <Dialog
-        open={open}
+      <Dialog 
+        open={props.visible}
         onClose={handleAlertClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{props.note.title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {props.description}
+            {props.note.description}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <div className="AlertIcons-container">
-            <Icons />
+            <Icons  />
             <Button onClick={handleAlertClose}>Close</Button>
           </div>
         </DialogActions>

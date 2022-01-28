@@ -86,8 +86,10 @@ export class Icons extends Component {
             
         
         };
+
     }
-    handleClick = event => this.setState({ anchorEl: event.currentTarget })
+    handleClick = event => { event.stopPropagation();
+      this.setState({ anchorEl: event.currentTarget })}
     
     handleClose = () => this.setState({ anchorEl: false });
 
@@ -124,6 +126,42 @@ export class Icons extends Component {
           })
       }
     }
+
+    useArchive=()=>{
+      
+      if(this.props.mode === "create"){
+      this.props.changeArchive(true)
+      }
+      else{
+          let data ={
+              "noteIdList":[this.props.noteId],
+              "isArchived": true
+          }
+          noteService.changeArchive(data)
+          .then(res =>{
+              console.log(res)
+          })
+          .catch(err =>{
+              console.log( "Error msg" + err)
+          })
+      }
+  }
+
+  handleDelete =() =>{
+  
+          console.log(this.props.noteId);
+        let data ={
+            "noteIdList":[this.props.noteId],
+            "isDeleted": true
+        }
+        noteService.deleteNote(data)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(err =>{
+            console.log( "Error msg" + err)
+        })
+}
     
     render() {
         const { anchorEl, colorOpen} = this.state
@@ -157,7 +195,7 @@ export class Icons extends Component {
       
 
             <ImageOutlinedIcon />
-            <ArchiveOutlinedIcon />
+            <ArchiveOutlinedIcon   onClick={(e) => this.useArchive(e)} />
 
             <div>
           <MoreVertOutlinedIcon onClick={this.handleClick} />
@@ -172,7 +210,7 @@ export class Icons extends Component {
               horizontal: "left"
             }}>
             <Typography sx={{ p: 1 , zIndex:'3'}}>
-                <MenuItem>Delete note </MenuItem>
+                <MenuItem onClick={() =>this.handleDelete()} >Delete note </MenuItem>
                 <MenuItem> Add label </MenuItem>
                 <MenuItem>Add drawing </MenuItem>
                 <MenuItem>Make a copy</MenuItem>

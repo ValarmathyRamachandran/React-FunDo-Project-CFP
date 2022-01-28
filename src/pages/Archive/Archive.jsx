@@ -6,7 +6,7 @@ import NoteService from "../../service/NoteService";
 
 const noteService =  new NoteService();
 
-export class Notes extends Component {
+export class Archive extends Component {
         constructor(props) {
           super(props)
         
@@ -19,13 +19,13 @@ export class Notes extends Component {
           
       }
       updateNote = () => {  
-          noteService.getNote()
+          noteService.getArchiveNoteList()
                 .then((res) => {
-                  console.log(res.data.data.data);
+                  console.log(res.data.data.data.isArchived);
                   this.setState({
-                    getAllNotesArray:res.data.data.data,
-                    title:res.data.data.data.title,
-                    description:res.data.data.data.description
+                    getAllNotesArray:(res.data.data.data.isArchived === true),
+                    // title:res.data.data.data.title,
+                    // description:res.data.data.data.description
                   })
                   console.log(this.state.getAllNotesArray);
                 })
@@ -41,7 +41,7 @@ export class Notes extends Component {
     render() {
         return (
             <div>
-                <TakeANote getnotes={this.getAllNotesArray}  /> 
+                
                 <DisplayNotes  getAllNotes={this.state.getAllNotesArray}  updateDiplayNote={this.updateNote}/>
             </div>
         ) 
