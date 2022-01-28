@@ -11,36 +11,40 @@ export class Notes extends Component {
           super(props)
         
           this.state = {
-            getAllNotes:[]
+            getAllNotesArray:[]
           }
         }
         componentDidMount() {
+          this.updateNote();
+          
+      }
+      updateNote = () => {  
           noteService.getNote()
                 .then((res) => {
                   console.log(res.data.data.data);
                   this.setState({
-                    getAllNotes:res.data.data.data,
+                    getAllNotesArray:res.data.data.data,
                     // title:res.data.data.data.title,
                     // description:res.data.data.data.description
                   })
-                  console.log(this.state.getAllNotes);
+                  console.log(this.state.getAllNotesArray);
                 })
                 .catch(err => {
                   console.log(err)
                 })
+      }
 
-                
-        }
+     
 
   
 
     render() {
         return (
             <div>
-                <TakeANote getnotes={this.getAllNotes} /> 
-                <DisplayNotes  displayallNotes={this.state.getAllNotes}/>
+                <TakeANote getnotes={this.getAllNotesArray}  /> 
+                <DisplayNotes  getAllNotes={this.state.getAllNotesArray}  updateDiplayNote={this.updateNote}/>
             </div>
-        )
+        ) 
     }
 }
 export default Notes;       

@@ -9,37 +9,45 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AlertDialog from '../AlertDialogBox/AlertDialog';
 
+
+
 export class DisplayNotes extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.displayallNotes);
-    this.state = {
-      
-     
     
+    this.state = {
+            open: false,
+            title: this.props.getAllNotes.title,
+            description: this.props.getAllNotes.description,
+            color: '#ffffff',
+            note:''
     };
   }
  
+  handleClickDialogOpen(note){
+    this.setState({
+      note:note.id
+    });
 
+    console.log(this.state.note);
+  }
  
+
 
 render()
   {  
-    
   return (
         <div className="DisplayNote-Container">
-
-          {this.props.displayallNotes.map((item,index) => ( 
-              <div className="DisplayNote-box" key={item.title}  onClick={this.handleClickOpen} > 
+             
+          {this.props.getAllNotes.map((item,index) => ( 
+              <div className="DisplayNote-box" key={item.title}  onClick={() => this.handleClickDialogOpen(item)} style={{backgroundColor:item.color}} > 
                    { item.title }<br />
                   <div className="desc-text"> { item.description } </div>
-                   <Icons />
-                   <AlertDialog title={item.title} description={item.description}></AlertDialog>
+                   <Icons  mode="update" noteId={item.id}  />
               </div>
-              
               ))
-             
-            }
+          }
+               <AlertDialog noteId={this.state.note} ></AlertDialog>
              
 
       </div>

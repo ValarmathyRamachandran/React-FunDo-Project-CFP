@@ -18,11 +18,10 @@ export default function AlertDialog(props) {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleAlertClose = () => {
     setOpen(false);
   };
 
-  const title = "test"; 
 
   return (
     <div className="AlertDialog-Container">
@@ -33,7 +32,7 @@ export default function AlertDialog(props) {
       
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={handleAlertClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -46,7 +45,7 @@ export default function AlertDialog(props) {
         <DialogActions>
           <div className="AlertIcons-container">
             <Icons />
-            <Button onClick={handleClose}>Close</Button>
+            <Button onClick={handleAlertClose}>Close</Button>
           </div>
         </DialogActions>
       </Dialog>

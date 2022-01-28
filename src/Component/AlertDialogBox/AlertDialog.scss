@@ -5,19 +5,20 @@
     margin-right: 2%;
     flex-wrap: wrap;   
     height: 150px;
-    width: 125%;
+    width: 135%;
     border: none;
     margin-top: 5%;
-  
+    
     .AlertDialog-box{
         display: flex;
         padding: 20px;
         flex-wrap: wrap;
         height: 73px;
-        width: 436%;
-        border: none;
+        width: 456%;
+        border: 1px solid red;
         margin-top: -48%;
         margin-left: -13%;
+        overflow-x: hidden;
     }
     .AlertIcons-container{
         display: flex;

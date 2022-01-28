@@ -20,7 +20,8 @@ export class TakeANote extends Component {
           openTakeNote:true,  
           title:"",
           description: "",
-          color:"#ffffff"
+          color:"#ffffff",
+          archive:false
          
         };
       }
@@ -34,42 +35,38 @@ export class TakeANote extends Component {
       
       
       changeColor=(value)=>{
-        // console.log('test from TakeAnote',value);
-        this.setState({
+          this.setState({
             color: value
-        })
+          })
       }
 
       
-    handleClose = () => {
+    handleCloseTakeNotes = () => {
       
-      var formData = new FormData();
+        var formData = new FormData();
 
-        formData.append("title",this.state.title);
-        formData.append("description",this.state.description);
-        formData.append("color",this.state.color);
+        formData.append("title",this.state.title)
+        formData.append("description",this.state.description)
+        formData.append("color",this.state.color)
+        formData.append("isArchived",this.state.archive)
       
         noteService.addNote(formData)
         .then((response) => {
           console.log(response);
-          console.log('success');
-          this.props.getnotes();
-
+          this.props.updateNote();
             this.setState({
               openTakeNote: true,
               title: '',
               description: '',
-              color:'#ffffff'
-            })
-        })
-        
-        .catch(err => { console.log(err) });
-       
+              color:'#ffffff',
+              archive:false
+              })
+        }).catch(err => { console.log(err) });
       }
 
 
 
-      changeHandle = (e) => {
+      changeHandleGetNotes = (e) => {
         this.setState({
           [e.target.name]: e.target.value
         });
@@ -84,7 +81,7 @@ export class TakeANote extends Component {
 
         <div className='TakeNotes-textareaContainer'>
         <input  className="Textarea-DisplayNotes" type="input" 
-          name="Title" placeholder= "Take a note..." onClick={this.handleOpen}
+          name="title" placeholder= "Take a note..." onClick={this.handleOpen}
         />
         <div  className="DisplayInput-icons">
             <CheckBoxOutlinedIcon />
@@ -97,14 +94,14 @@ export class TakeANote extends Component {
           <div className='TakeNote-expandContainer' style={{backgroundColor:this.state.color}} >
           <input  className="Textarea-TakeaNote" type="textarea" name="title" 
           placeholder= "Title" style={{backgroundColor:this.state.color}}
-          onChange={(e) => this.changeHandle(e)}/>
+          onChange={(e) => this.changeHandleGetNotes(e)}/>
           <textarea  className="Textarea-TakeaNote" type="textarea" name="description" 
-          placeholder= "Take a note..." onChange={(e) => this.changeHandle(e)}  style={{backgroundColor:this.state.color}}/>
+          placeholder= "Take a note..." onChange={(e) => this.changeHandleGetNotes(e)}  style={{backgroundColor:this.state.color}}/>
           <div className="icon-container">
            
-          <Icons changeColor={this.changeColor} />
+          <Icons changeColor={this.changeColor} mode="create" />
           <div className="takenote-close">
-          <button className="takenote-close-btn" onClick={this.handleClose}>Close</button>
+          <button className="takenote-close-btn" onClick={this.handleCloseTakeNotes}>Close</button>
           </div>
           </div>
           </div>

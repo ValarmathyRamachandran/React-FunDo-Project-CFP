@@ -1,3 +1,32 @@
+
+@mixin Color-Icons {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    justify-content:space-between;
+    margin-right: 1vh;
+}
+
+.color-list-container{
+display: inline-flex;
+justify-content:space-between;
+padding: 2px;
+
+.color-popper-icons{
+    @include Color-Icons();
+}
+}
+
+.ColorPopper-icons-main{
+
+display: contents;
+width: 45%;
+margin-right: -150px;
+justify-content:space-between;
+color: #5f6368;
+size: 8%;
+}
+
 .iconsList{
   
     width: 80%;
@@ -6,4 +35,3 @@
     margin-top: 15px;
     size: 5%;
 }
-
