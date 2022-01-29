@@ -174,7 +174,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       
     {
       text:"Archive",
-      icon:<ArchiveOutlinedIcon onClick={() =>this.props.history.push('/Archive')}/>
+      icon:<ArchiveOutlinedIcon />
     },
      
     {
@@ -225,11 +225,11 @@ return (
         
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} >
         <DrawerHeader></DrawerHeader>
         <Divider />
 
-        <List>
+        <List onClick={() =>this.props.history.push('/Archive')}>
             {sidebarIcons.map((text,index) =>(
                 <ListItem button key ={index}>
               <ListItemIcon>

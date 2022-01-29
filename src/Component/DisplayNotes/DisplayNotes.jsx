@@ -7,7 +7,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import AlertDialog from '../AlertDialogBox/AlertDialog';
 import NoteService from '../../service/NoteService';
 import { styled } from '@mui/system';
 import { IconButton } from '@mui/material';
@@ -138,8 +137,8 @@ render()
                         </DialogContent>
                         <DialogContent className="close-Icon" >
 
-                            <Icons changeColor = {this.changeColor} mode="update" noteId={this.state.note.id} />
-                            <Button  onClick={(title, description) => this.handleClose(title, description)} autoFocus> Close </Button>
+                            <Icons changeColor = {this.changeColor} mode="update" noteId={this.state.note.id} style={{ width: "90%"}} />
+                            <Button  className="DisplayCloseBtn" onClick={(title, description) => this.handleClose(title, description)} autoFocus> Close </Button>
 
                         </DialogContent>
 
