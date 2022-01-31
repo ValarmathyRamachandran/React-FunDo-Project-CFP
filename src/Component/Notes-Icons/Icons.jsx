@@ -120,14 +120,16 @@ export class Icons extends Component {
           noteService.changesColorNotes(data)
           .then(res =>{
               console.log(res)
+              this.props.getnotes();
+              
           })
           .catch(err =>{
               console.log( "Error msg" + err)
           })
       }
-      this.props.getnotes();
-      if(this.props.mode==="DialogUpdate"){
-          this.props.dialogUpdate(clrValue);
+     
+      if(this.props.mode==="update"){
+          this.props.changeColor(clrValue);
       }
      
       
@@ -146,6 +148,7 @@ export class Icons extends Component {
           noteService.changeArchive(data)
           .then(res =>{
               console.log(res)
+              this.props.getnotes();
           })
           .catch(err =>{
               console.log( "Error msg" + err)
@@ -163,6 +166,7 @@ export class Icons extends Component {
         noteService.deleteNote(data)
         .then(res =>{
             console.log(res)
+            this.props.getnotes();
         })
         .catch(err =>{
             console.log( "Error msg" + err)

@@ -212,7 +212,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
   const sideMenuIconClick = (text) => {
    
-    if (text.iconText === "Archive") {
+    if (text.iconText == "Archive") {
       navigate("/archive")
       
     }
