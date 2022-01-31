@@ -140,9 +140,9 @@ render()
         <div className="DisplayNote-Container">
              
           {this.props.getAllnotesArr.map((item,index) => ( 
-              <div className="DisplayNote-box" key={index}  onClick={() => this.handleClickDialogOpen(item)} style={{backgroundColor:item.color}} > 
-                   { item.title }<br />
-                  <div className="desc-text"> { item.description } </div>
+              <div className="DisplayNote-box" key={index}   style={{backgroundColor:item.color}} > 
+                 <div onClick={() => this.handleClickDialogOpen(item)}>  { item.title }<br />
+                  <div className="desc-text"> { item.description } </div></div>
                    <Icons  mode="update" noteId={item.id} getnotes={this.props.getnotes} changeArchive={this.changeArchive} changeDelete={this.changeDelete} changeColor={this.changeColor}  />
               </div>
               ))
