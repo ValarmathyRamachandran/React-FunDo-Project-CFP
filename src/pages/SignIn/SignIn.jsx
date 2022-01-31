@@ -49,9 +49,12 @@ export class SignIn extends Component {
       .then((response) => {
         console.log(response);
         console.log('success');
-        localStorage.setItem("token",response.data.id)
+        localStorage.setItem("token",response.data.id);
+        localStorage.setItem("firstName",response.data.firstName);
+        localStorage.setItem("lastName",response.data.lastName);
+        localStorage.setItem("email",response.data.email);
         
-        // window.location.href="http://localhost:4200/dashboard";
+        window.location.href="http://localhost:4200/dashboard";
        
       })
       

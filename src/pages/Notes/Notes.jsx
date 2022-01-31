@@ -22,12 +22,13 @@ export class Notes extends Component {
           noteService.getNote()
                 .then((res) => {
                   console.log(res.data.data.data);
+                  let filteredData = res.data.data.data.filter(value => value.isArchived !== true && value.isDeleted !== true)
                   this.setState({
-                    getAllNotesArray:res.data.data.data,
-                    title:res.data.data.data.title,
-                    description:res.data.data.data.description
+                    getAllNotesArray : filteredData
+                   
                   })
-                  console.log(this.state.getAllNotesArray);
+                 
+                  
                 })
                 .catch(err => {
                   console.log(err)
@@ -41,8 +42,8 @@ export class Notes extends Component {
     render() {
         return (
             <div>
-                <TakeANote getnotes={this.getAllNotesArray}  /> 
-                <DisplayNotes  getAllNotes={this.state.getAllNotesArray}  updateDiplayNote={this.updateNote}/>
+                <TakeANote getnotes={this.updateNote}  /> 
+                <DisplayNotes  getAllnotesArr={this.state.getAllNotesArray}  getnotes={this.updateNote}/>
             </div>
         ) 
     }

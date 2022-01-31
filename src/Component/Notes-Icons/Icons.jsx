@@ -125,6 +125,12 @@ export class Icons extends Component {
               console.log( "Error msg" + err)
           })
       }
+      this.props.getnotes();
+      if(this.props.mode==="DialogUpdate"){
+          this.props.dialogUpdate(clrValue);
+      }
+     
+      
     }
 
     useArchive=()=>{

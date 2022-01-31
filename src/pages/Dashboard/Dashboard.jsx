@@ -35,8 +35,19 @@ import { styled, alpha, useTheme } from '@mui/material/styles';
 import Notes from '../Notes/Notes';
 import DisplayNotes from '../../Component/DisplayNotes/DisplayNotes';
 import TakeANote from '../../Component/TakeANote/TakeANote';
+import UserProfile from '../../Component/UserProfile/UserProfile';
 
 
+import { useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useRoutes
+} from "react-router-dom";
+import { Archive } from '../Archive/Archive';
+import Trash from '../Trash/Trash';
 
 
 
@@ -151,6 +162,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
   export default function MiniDrawer() {
+    const navigate = useNavigate();
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -158,27 +170,27 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   let sidebarIcons =
   [ 
     {
-        text:"Notes",
+        iconText:"Notes",
         icon:<LightbulbOutlinedIcon/>
     },
       
     {
-      text:"Reminders",
+      iconText:"Reminders",
       icon:<NotificationsOutlinedIcon/>
     },
      
     {
-      text:"Edit Labels",
+      iconText:"Edit Labels",
       icon:<BorderColorTwoToneIcon/>
     },
       
     {
-      text:"Archive",
+      iconText:"Archive",
       icon:<ArchiveOutlinedIcon />
     },
      
     {
-      text:"Trash",
+      iconText:"Trash",
       icon:<DeleteOutlineSharpIcon/>
     }
   ];
@@ -188,6 +200,27 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
+
+  const RouteWrapper=()=>{
+    let routes = useRoutes([
+      { path: "/archive", element: <Archive /> },
+      { path: "/trash", element: <Trash /> },
+     
+     ]);
+    return routes;
+  }
+
+  const sideMenuIconClick = (text) => {
+   
+    if (text.iconText === "Archive") {
+      navigate("/archive")
+      
+    }
+    else {
+      navigate("/trash")
+    }
+   
+  }
 
 
 return (
@@ -221,7 +254,8 @@ return (
          <li className="setting-icon"><SettingsOutlinedIcon /></li> 
          <li className="app-icon"><AppsRoundedIcon /></li>
          </ListItem>
-          <div className="Circle-color-icon" CircleRoundedIcon > < CircleRoundedIcon /></div>
+          {/* <div className="Circle-color-icon" CircleRoundedIcon   > < CircleRoundedIcon /></div> */}
+          <UserProfile />
         
         </Toolbar>
       </AppBar>
@@ -229,13 +263,13 @@ return (
         <DrawerHeader></DrawerHeader>
         <Divider />
 
-        <List onClick={() =>this.props.history.push('/Archive')}>
+        <List >
             {sidebarIcons.map((text,index) =>(
-                <ListItem button key ={index}>
+                <ListItem button key ={index} onclick={() => sideMenuIconClick(text)}>
               <ListItemIcon>
              {text.icon}
               </ListItemIcon>
-              <ListItemText primary={text.text} />
+              <ListItemText primary={text.iconText} />
             </ListItem>
           ))}
         </List> 
@@ -243,8 +277,9 @@ return (
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
-          <Notes />
-        </Typography>
+        <RouteWrapper />
+        <Notes/>
+       </Typography>
         </Box>
     </Box>
     

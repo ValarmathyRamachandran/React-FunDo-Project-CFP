@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import DisplayNotes from "../../Component/DisplayNotes/DisplayNotes";
 import TakeANote from "../../Component/TakeANote/TakeANote";
 import NoteService from "../../service/NoteService";
+import Notes from "../Notes/Notes";
+
 
 
 const noteService =  new NoteService();
@@ -11,21 +13,19 @@ export class Archive extends Component {
           super(props)
         
           this.state = {
-            getAllNotesArray:[]
+            archiveNoteArray:[]
           }
         }
         componentDidMount() {
-          this.updateNote();
+          this.ArchiveNote();
           
       }
-      updateNote = () => {  
+      ArchiveNote = () => {  
           noteService.getArchiveNoteList()
                 .then((res) => {
                   console.log(res.data.data.data.isArchived);
                   this.setState({
-                    getAllNotesArray:(res.data.data.data.isArchived === true),
-                    // title:res.data.data.data.title,
-                    // description:res.data.data.data.description
+                    archiveNoteArray:res.data.data.data.isArchived
                   })
                   console.log(this.state.getAllNotesArray);
                 })
@@ -42,7 +42,7 @@ export class Archive extends Component {
         return (
             <div>
                 
-                <DisplayNotes  getAllNotes={this.state.getAllNotesArray}  updateDiplayNote={this.updateNote}/>
+                <DisplayNotes  getAllNotes={this.state.archiveNoteArray}  updateDiplayNote={this.updateNote} ArchiveNotes={this.ArchiveNote}/>
             </div>
         ) 
     }

@@ -53,7 +53,7 @@ export class TakeANote extends Component {
         noteService.addNote(formData)
         .then((response) => {
           console.log(response);
-          this.props.updateNote();
+          this.props.getnotes();
             this.setState({
               openTakeNote: true,
               title: '',
@@ -99,7 +99,7 @@ export class TakeANote extends Component {
           placeholder= "Take a note..." onChange={(e) => this.changeHandleGetNotes(e)}  style={{backgroundColor:this.state.color}}/>
           <div className="icon-container">
            
-          <Icons changeColor={this.changeColor} mode="create" />
+          <Icons changeColor={this.changeColor} mode="create" getnotes={this.props.getnotes} />
           <div className="takenote-close">
           <button className="takenote-close-btn" onClick={this.handleCloseTakeNotes}>Close</button>
           </div>

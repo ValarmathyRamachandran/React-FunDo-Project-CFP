@@ -7,6 +7,7 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Reset from './pages/Reset/Reset';
 import Dashboard from './pages/Dashboard/Dashboard';
 import TakeANote from './Component/TakeANote/TakeANote';
+import ProtectedRoute from './Component/ProtectedRoutePath/ProtectedRoutePath';
 import {
   BrowserRouter as Router,
   Route,
@@ -23,7 +24,9 @@ const AppWrapper=()=>{
     { path: "/signin", element: <SignIn /> },
     { path:"/forgotpassword", element:<ForgotPassword />},
     { path:"/resetpassword", element:<Reset />},
-    { path:"/dashboard", element:<Dashboard />}
+    { path:"/dashboard", element:<Dashboard />},
+   <ProtectedRoute >path:"/dashboard" , element:<Dashboard /> </ProtectedRoute> ,
+    <Route path='*' component={() => "Error 404 Page Not Found"} />
     
     
   ]);

@@ -55,22 +55,25 @@ export class DisplayNotes extends Component {
     
     this.state = {
             open: false,
-            title: this.props.getAllNotes.title,
-            description: this.props.getAllNotes.description,
+            title: this.props.getAllnotesArr.title,
+            description: this.props.getAllnotesArr.description,
             color: '#ffffff',
             note:'',
-            setOpen: false
+            setOpen: false,
+            archive:false,
+            delete:false
     };
   }
  
   handleClickDialogOpen(note){
     this.setState({
       open:true,
-      setOpen:true,
+      setOpen:false,
       note: {
         id:note.id,
         title:note.title,
-        description:note.description
+        description:note.description,
+        color:note.color
       }
       
     });
@@ -81,27 +84,34 @@ export class DisplayNotes extends Component {
     const formData = new FormData();
     formData.append("title",this.state.title)
     formData.append("description",this.state.description)
-    formData.append("color",this.state.color)
-    formData.append("isArchived",this.state.archive)
+    // formData.append("color",this.state.color)
+    // formData.append("isArchived",this.state.archive)
 
     noteService.getNote(formData)
         .then(res => {
-            console.log(res)
-      
-       
-            this.setState({
-                open: false,
-                title: '',
-                description: '',
-                color : '#fffff',
-                archive: false
-            })
-            this.props.updateNote();
+            console.log(res);  
         })
         .catch(err => {
             console.log(err)
         })
+        this.setState({
+          open:false,
+          setOpen:false,
+          title: '',
+          description: '',
+          // color : '#fffff',
+          // archive: false
+      })
+        this.props.getnotes();
+       
 }
+dialogUpdate=(clr)=>{
+  this.setState({
+    note: {...this.state.note,
+      color:clr
+    }
+  });
+};
 
 fetchData = (e) => {
   this.setState({
@@ -109,16 +119,29 @@ fetchData = (e) => {
   })
   console.log(e.target.value)
 }
+
+changeArchive = (val) => {
+  this.setState({
+      useArchive: val
+  })
+}
+
+changeDelete = (val) => {
+  this.setState({
+    handleDelete: val
+  })
+}
+
 render()
   {  
   return (
         <div className="DisplayNote-Container">
              
-          {this.props.getAllNotes.map((item,index) => ( 
+          {this.props.getAllnotesArr.map((item,index) => ( 
               <div className="DisplayNote-box" key={index}  onClick={() => this.handleClickDialogOpen(item)} style={{backgroundColor:item.color}} > 
                    { item.title }<br />
                   <div className="desc-text"> { item.description } </div>
-                   <Icons  mode="update" noteId={item.id}  />
+                   <Icons  mode="update" noteId={item.id} getnotes={this.props.getnotes} changeArchive={this.changeArchive} changeDelete={this.changeDelete} />
               </div>
               ))
           }
@@ -132,13 +155,14 @@ render()
                         </BootstrapDialogTitle>
                         <DialogContent>
 
-                            <input type="text" style={{ border: "none", outline: "none",backgroundColor:this.state.color }} value={this.state.note.description} name="description" onChange={(e) => this.fetchData(e)} />
+                            <input type="text" style={{ border: "none", outline: "none",backgroundColor:this.state.note.color }} value={this.state.note.description} name="description" onChange={(e) => this.fetchData(e)} />
 
                         </DialogContent>
                         <DialogContent className="close-Icon" >
 
-                            <Icons changeColor = {this.changeColor} mode="update" noteId={this.state.note.id} style={{ width: "90%"}} />
-                            <Button  className="DisplayCloseBtn" onClick={(title, description) => this.handleClose(title, description)} autoFocus> Close </Button>
+                            <Icons changeColor = {this.changeColor} mode="DialogUpdate" noteId={this.state.note.id} dialogUpdate={this.dialogUpdate} style={{ width: "90%"}} getnotes={this.props.getnotes}
+                            changeArchive={this.changeArchive} changeDelete={this.changeDelete} />
+                            <Button  className="DisplayCloseBtn" onClick={() => this.handleClose()} > Close </Button>
 
                         </DialogContent>
 
