@@ -4,10 +4,11 @@
     padding:20px;
     margin-right: 2%;
     flex-wrap: wrap;   
-    height: 150px;
-    width: 125%;
+    height:  286px;
+    width: 90%;
     border: none;
     margin-top: 5%;
+    margin-left: 11vh;
   
     
     .DisplayNote-box{
@@ -16,13 +17,14 @@
         flex-wrap: nowrap;
         border: 1px solid transparent;
         justify-items: center;
-        box-shadow: 1px 1px 1px 1px gray;
+        box-shadow: none;
+        border: 1px solid #e0e0e0;
         color: rgba(0, 0, 0, 0.54);
         padding: 20px;
         border-radius: 8px;
         margin-right: 2%;
-        height: 120px;
-        width: 25%;
+        height: 150px;
+        width: 23%;
         margin-bottom: 5%;
 
         .desc-text{

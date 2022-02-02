@@ -32,7 +32,7 @@ function App() {
         <Route path="/" element={ <SignUp/> } />
         <Route path="/signin" element={ <SignIn/> } />
         <Route path="/forgotpassword" element={ <ForgotPassword/> } />
-        <Route path = "/resetpassword" element={<Reset />} />
+        <Route path = "/resetpassword/:header"  exact element={<Reset />} />
         <Route path= "/dashboard" element= {<Dashboard />} />
         <Route exact path= "/archive" element= {<Archive />} />
         <Route exact path= "/trash" element= {<Trash />} />

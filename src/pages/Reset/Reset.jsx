@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import TextField from '@mui/material/TextField';
 import './Reset.scss';
 import UserService from "../../service/Userservice";
+import { Link } from "react-router-dom";
+
 
 const userService =  new UserService();
 
@@ -46,7 +48,7 @@ export default class Reset extends Component{
           console.log(response);
           console.log('success');  
          
-          // localStorage.setItem('token',header)
+          localStorage.setItem('token',response.data.id)
         })
         .catch(err => { console.log(err) });
         }
@@ -97,7 +99,9 @@ export default class Reset extends Component{
         </div>
 
         <div className="next-container">
+        <Link to="/signin">
             <button type="button" class="next-btn" size="small" onClick={this.next}>Next</button>
+        </Link >
         </div>
         </div>
         </form>

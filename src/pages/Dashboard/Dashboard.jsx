@@ -164,6 +164,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
   export default function MiniDrawer() {
     let navigate = useNavigate();
+    const [search, setSearch] = React.useState('');
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -224,6 +225,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
    
   }
 
+  const searchContent =(e) =>{
+    setSearch(e.target.value)
+  }
+
 
 return (
     <Box sx={{ display: 'flex', backgroundColor: '#fff', border:'.5px solid lightgray', }}>
@@ -247,7 +252,7 @@ return (
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ 'aria-label': 'search' }}   onChange={(e)=>searchContent(e)}
             />
           </Search>
          <ListItem className="rightMenu-icons"> 
@@ -263,7 +268,7 @@ return (
       </AppBar>
       <Drawer variant="permanent" open={open} >
         <DrawerHeader></DrawerHeader>
-        <Divider />
+      
 
         <List >
             {sidebarIcons.map((text,index) =>(
@@ -276,7 +281,7 @@ return (
           ))}
         </List> 
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} style={{  zIndex: +1}}>
         <DrawerHeader />
         <Typography paragraph>
         <Routes>
