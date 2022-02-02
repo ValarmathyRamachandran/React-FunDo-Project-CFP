@@ -51,3 +51,69 @@
     margin-top: -6vh !important;
     background-color: transparent !important;
 }
+
+@media screen and (max-width:1050px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(5,1fr);
+        margin-left: -2vh !important;
+        width: 115%;
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+        
+    }
+}
+
+@media screen and (max-width:900px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(4,1fr);
+        width: 115%;
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(3,1fr);
+        width: 115%;
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(3,1fr);
+        width: 115%;
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(2,1fr);
+        width: 115%;
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+      
+    }
+}
+
+@media screen and (max-width:420px) {
+    .DisplayNote-Container{
+        grid-template-columns: repeat(1,1fr);
+        width: 115%;
+      
+    }
+    .DisplayNote-box{
+        width: 100% !important;
+   
+        
+    }
+}

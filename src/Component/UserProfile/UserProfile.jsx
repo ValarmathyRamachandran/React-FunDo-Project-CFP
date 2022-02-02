@@ -44,12 +44,14 @@ export default function UserProfile() {
       >
         <Typography sx={{ p: 2 }}>
             <div className='userProfile-icon-container' style={{backgroundColor:'white'}} >
-                <p style={{fontWeight:'500',lineHeight:.2}} >{localStorage.getItem("firstName")}
+
+              <  CircleRoundedIcon style={{height: '0%',width: '30%', color: 'gray', marginLeft: '22vh' }} />
+                <p style={{fontWeight:'500',lineHeight:.2,textAlign:'centre',marginLeft:'18vh'}} >{localStorage.getItem("firstName")}
                 {' '}{localStorage.getItem("lastName")}</p>
-                <p style={{marginLeft:"4vh"}}>{localStorage.getItem("email")}</p>
+                <p style={{marginLeft:"22vh" ,textAlign:'centre'}}>{localStorage.getItem("email")}</p>
 
                 <div>
-                <Link to="/signin"> <button className='signOut-btn' onClick={signOut} style={{backgroundColor:'white' ,border: '1px solid gray' ,padding:'5px',marginLeft:'10vh'}}>Sign Out</button></Link>
+                <Link to="/signin"> <button className='signOut-btn' onClick={signOut} style={{fontWeight:'bold',backgroundColor:'white' ,borderColor: 'lightGray' , border:'.5px solid',padding:'10px',marginLeft:'28vh'}}>Sign Out</button></Link>
                 </div>
             </div>
         </Typography>

@@ -89,23 +89,21 @@ export class DisplayNotes extends Component {
     noteService.getUpdatedNote(formData)
         .then(res => {
             console.log(res);  
-            this.props.getnotes();
+            this.props.updateNote();
             this.setState({
               open:false,
               setOpen:false,
               title: '',
               description:'',
               color:'',
-              id:''
+              id:'' ,
               
         })
+      })
         .catch(err => {
             console.log(err)
         })
-      
-      })
-       
-}
+  }
 
 
 fetchData = (e) => {
@@ -164,8 +162,8 @@ render()
 
                             <Icons changeColor = {this.changeColor} mode="update" noteId={this.state.id}  style={{ width: "90%"}} getnotes={this.props.getnotes} changeColor={this.changeColor}
                             changeArchive={this.changeArchive} changeDelete={this.changeDelete} />
-                            <Button value="Displayclose" className="DisplayCloseBtn" onClick={(title, description) => this.handleClose(title, description)} > Close </Button>
-
+                            {/* <Button value="Displayclose" className="DisplayCloseBtn" onClick={() => this.handleClose()}  changeColor={this.changeColor}> Close </Button> */}
+                            <Button autoFocus className="DisplayCloseBtn" onClick={(title, description) => this.handleClose(title, description)}> Close </Button>
                         </DialogContent>
 
                     </div>
