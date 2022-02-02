@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import { border, padding } from '@mui/system';
+import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,6 +19,13 @@ export default function UserProfile() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+  const signOut = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem("email")
+    localStorage.removeItem("firstName")
+    localStorage.removeItem("lastName")
+}
 
   return (
     <div>
@@ -41,7 +49,7 @@ export default function UserProfile() {
                 <p style={{marginLeft:"4vh"}}>{localStorage.getItem("email")}</p>
 
                 <div>
-                    <button className='signOut-btn' style={{backgroundColor:'white' ,border: '1px solid gray' ,padding:'5px',marginLeft:'10vh'}}>Sign Out</button>
+                <Link to="/signin"> <button className='signOut-btn' onClick={signOut} style={{backgroundColor:'white' ,border: '1px solid gray' ,padding:'5px',marginLeft:'10vh'}}>Sign Out</button></Link>
                 </div>
             </div>
         </Typography>
