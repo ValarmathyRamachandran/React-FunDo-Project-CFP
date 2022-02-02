@@ -5,7 +5,7 @@ const service = new Axiossercice();
 let baseurl='http://fundoonotes.incubation.bridgelabz.com/api/';
 
 var currenturl=window.location.href.toString().split('/resetpassword/');
-console.log(currenturl[1]);
+// console.log(currenturl[1]);
 
 let header={
     headers:{

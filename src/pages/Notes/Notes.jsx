@@ -43,7 +43,7 @@ export class Notes extends Component {
         return (
             <div>
                 <TakeANote getnotes={this.updateNote}  /> 
-                <DisplayNotes  getAllnotesArr={this.state.getAllNotesArray}  getnotes={this.updateNote}/>
+                <DisplayNotes  getAllnotesArr={this.state.getAllNotesArray}  updateNote={this.updateNote}/>
             </div>
         ) 
     }

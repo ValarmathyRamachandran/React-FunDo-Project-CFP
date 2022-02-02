@@ -31,7 +31,7 @@ export class Trash extends Component {
     }
     render() {
         return <div>
-            <DisplayNotes trashArr={this.state.trashNotesArray} updateNote={this.updateTrashNote} />
+            <DisplayNotes getAllnotesArr={this.state.trashNotesArray} updateNote={this.updateTrashNote} />
         </div>;
     }
 }

@@ -17,29 +17,32 @@ import {
 } from "react-router-dom";
 
 import ReactDOM from 'react-dom';
+import Archive from './pages/Archive/Archive';
+import Trash from './pages/Trash/Trash';
+import Notes from './pages/Notes/Notes';
 
-const AppWrapper=()=>{
-  let routes = useRoutes([
-    { path: "/", element: <SignUp /> },
-    { path: "/signin", element: <SignIn /> },
-    { path:"/forgotpassword", element:<ForgotPassword />},
-    { path:"/resetpassword", element:<Reset />},
-    { path:"/dashboard", element:<Dashboard />},
-   <ProtectedRoute >path:"/dashboard" , element:<Dashboard /> </ProtectedRoute> ,
-    <Route path='*' component={() => "Error 404 Page Not Found"} />
-    
-    
-  ]);
-  return routes;
-}
+
 
 function App() {
   return (
-    <Router>
+    
+    <Routes>
      
-    <AppWrapper />
    
-    </Router> 
+        <Route path="/" element={ <SignUp/> } />
+        <Route path="/signin" element={ <SignIn/> } />
+        <Route path="/forgotpassword" element={ <ForgotPassword/> } />
+        <Route path = "/resetpassword" element={<Reset />} />
+        <Route path= "/dashboard" element= {<Dashboard />} />
+        <Route exact path= "/archive" element= {<Archive />} />
+        <Route exact path= "/trash" element= {<Trash />} />
+        <Route path= "/notes" element= {<Notes />} />
+        <Route path= "/dashboard"  element={<Dashboard />} /> 
+        <Route path='*' element={() => "Error 404 Page Not Found"} />
+
+   
+    </Routes> 
+   
   );
 }
 

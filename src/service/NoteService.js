@@ -35,9 +35,13 @@ class NoteService {
         return noteService.postMethod(`${baseurl}notes/trashNotes`,data,headerConfig)
     }
 
-    getArchiveNoteList(data){
-        return noteService.getMethod(`${baseurl}notes/getArchiveNotesList`,data,headerConfig)
+    getArchiveNoteList(){
+        return noteService.getMethod(`${baseurl}notes/getArchiveNotesList`,headerConfig)
     }
+
+    getTrashNote(){
+        return noteService.getMethod(`${baseurl}notes/getTrashNotesList`,headerConfig)
+      }
 }
 
 export default NoteService;

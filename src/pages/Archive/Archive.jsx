@@ -21,13 +21,14 @@ export class Archive extends Component {
           
       }
       ArchiveNote = () => {  
+
           noteService.getArchiveNoteList()
                 .then((res) => {
-                  console.log(res.data.data.data.isArchived);
+      
                   this.setState({
-                    archiveNoteArray:res.data.data.data.isArchived
+                    archiveNoteArray:res.data.data.data
                   })
-                  console.log(this.state.getAllNotesArray);
+                  console.log(this.state.archiveNoteArray);
                 })
                 .catch(err => {
                   console.log(err)
@@ -42,10 +43,10 @@ export class Archive extends Component {
         return (
             <div>
                 
-                <DisplayNotes  getAllNotes={this.state.archiveNoteArray}  updateDiplayNote={this.updateNote} ArchiveNotes={this.ArchiveNote}/>
+                <DisplayNotes  getAllnotesArr={this.state.archiveNoteArray}   updateNote={this.ArchiveNote}/>
             </div>
         ) 
     }
 }
-export default Notes;       
+export default Archive;       
 

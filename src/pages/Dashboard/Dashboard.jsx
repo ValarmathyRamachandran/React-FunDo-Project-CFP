@@ -51,6 +51,7 @@ import Trash from '../Trash/Trash';
 
 
 
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -162,7 +163,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
   export default function MiniDrawer() {
-    const navigate = useNavigate();
+    let navigate = useNavigate();
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -201,23 +202,24 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     setOpen(!open);
   };
 
-  const RouteWrapper=()=>{
-    let routes = useRoutes([
-      { path: "/archive", element: <Archive /> },
-      { path: "/trash", element: <Trash /> },
-     
-     ]);
-    return routes;
-  }
 
-  const sideMenuIconClick = (text) => {
+  const sideMenuIconClick= (text) => {
    
     if (text.iconText == "Archive") {
-      navigate("/archive")
+      navigate('/archive')
+      console.log(text.iconText,'inside archive' );
       
     }
-    else {
-      navigate("/trash")
+    else if(text.iconText == "Trash"){
+      navigate('/trash')
+  
+    }
+    else if (text.iconText == "Notes") {
+
+      navigate("/notes")
+    }
+    else{
+      console.log(text.iconText,'inside else' );
     }
    
   }
@@ -265,7 +267,7 @@ return (
 
         <List >
             {sidebarIcons.map((text,index) =>(
-                <ListItem button key ={index} onclick={() => sideMenuIconClick(text)}>
+                <ListItem button key ={text.iconText} onClick={() => sideMenuIconClick(text)}>
               <ListItemIcon>
              {text.icon}
               </ListItemIcon>
@@ -277,8 +279,13 @@ return (
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
-        <RouteWrapper />
-        <Notes/>
+        <Routes>
+    
+        <Route exact path= "/archive" element= {<Archive />} />
+        <Route exact path= "/trash" element= {<Trash />} />
+        <Route exact path= "/" element= {<Notes />} />
+        
+        </Routes> 
        </Typography>
         </Box>
     </Box>
